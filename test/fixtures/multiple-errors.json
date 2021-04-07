@@ -1,0 +1,288 @@
+[
+  {
+    "$schema": "https://unpkg.com/@camunda/element-templates-json-schema@0.3.0/resources/schema.json",
+    "id": "com.camunda.example.MailTask",
+    "appliesTo": [
+      "bpmn:ServiceTask"
+    ],
+    "properties": [
+      {
+        "label": "Implementation Type",
+        "type": "String",
+        "value": "com.mycompany.MailTaskImpl",
+        "editable": false,
+        "binding": {
+          "type": "property",
+          "name": "camunda:class"
+        }
+      },
+      {
+        "label": "Sender",
+        "type": "String",
+        "binding": {
+          "type": "camunda:inputParameter",
+          "name": "sender"
+        },
+        "constraints": {
+          "notEmpty": true,
+          "pattern": {
+            "value": "^[A-z0-9._%+-]+@[A-z0-9.-]+\\.[A-z]{2,}$",
+            "message": "Must be a valid email."
+          }
+        }
+      },
+      {
+        "label": "Receivers",
+        "type": "String",
+        "binding": {
+          "type": "camunda:inputParameter",
+          "name": "receivers"
+        },
+        "constraints": {
+          "notEmpty": true
+        }
+      },
+      {
+        "label": "Template",
+        "description": "By the way, you can use <a href=\"https://freemarker.apache.org/\">freemarker templates</a> here",
+        "value": "Hello ${firstName}!",
+        "type": "Text",
+        "binding": {
+          "type": "camunda:inputParameter",
+          "name": "messageBody",
+          "scriptFormat": "freemarker"
+        },
+        "constraints": {
+          "notEmpty": true
+        }
+      },
+      {
+        "label": "Result Status",
+        "description": "The process variable to which to assign the send result to",
+        "value": "mailSendResult",
+        "type": "String",
+        "binding": {
+          "type": "camunda:outputParameter",
+          "source": "${ resultStatus }"
+        }
+      },
+      {
+        "label": "Send Async?",
+        "type": "Boolean",
+        "value": true,
+        "binding": {
+          "type": "property",
+          "name": "camunda:asyncBefore"
+        }
+      }
+    ]
+  },
+  {
+    "$schema": "https://unpkg.com/@camunda/element-templates-json-schema@0.3.0/resources/schema.json",
+    "name": "ConnectorGetTask",
+    "id": "my.connector.http.get.Task",
+    "appliesTo": "me",
+    "properties": [],
+    "scopes": [
+      {
+        "type": "camunda:Connector",
+        "properties": [
+          {
+            "label": "ConnectorId",
+            "type": "String",
+            "value": "My Connector HTTP - GET",
+            "binding": {
+              "type": "property",
+              "name": "connectorId"
+            }
+          },
+          {
+            "label": "Method",
+            "type": "String",
+            "value": "GET",
+            "binding": {
+              "type": "camunda:inputParameter",
+              "name": "method"
+            }
+          },
+          {
+            "label": "URL",
+            "type": "String",
+            "value": "https://bpmn.io",
+            "binding": {
+              "type": "camunda:inputParameter",
+              "name": "url"
+            }
+          },
+          {
+            "label": "Response",
+            "type": "String",
+            "value": "wsResponse",
+            "binding": {
+              "type": "camunda:outputParameter",
+              "source": "${S(response)}",
+              "scriptFormat": "freemarker"
+            }
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "$schema": "https://unpkg.com/@camunda/element-templates-json-schema@0.3.0/resources/schema.json",
+    "name": "AsyncAwesomeTask",
+    "id": "com.camunda.example.AwesomeTask",
+    "appliesTo": [
+      "bpmn:Task"
+    ],
+    "properties": [
+      {
+        "label": "Are you awesome?",
+        "type": null,
+        "value": true,
+        "binding": {
+          "type": "property",
+          "name": "camunda:asyncBefore"
+        }
+      }
+    ]
+  },
+  {
+    "$schema": "https://unpkg.com/@camunda/element-templates-json-schema@0.3.0/resources/schema.json",
+    "name": "Custom ServiceTask",
+    "id": "com.camunda.example.CustomServiceTask",
+    "appliesTo": [
+      "bpmn:ServiceTask"
+    ],
+    "properties": [
+      {
+        "label": "Delegate to Call",
+        "type": "String",
+        "editable": false,
+        "value": "com.camunda.example.FooDelegate",
+        "binding": {
+          "type": "property",
+          "name": "camunda:delegateExpression"
+        }
+      }
+    ]
+  },
+  {
+    "$schema": "https://unpkg.com/@camunda/element-templates-json-schema@0.3.0/resources/schema.json",
+    "name": "VIP-Order Path",
+    "id": "e.com.merce.FastPath",
+    "appliesTo": [
+      "bpmn:SequenceFlow"
+    ],
+    "properties": [
+      {
+        "label": "VIP-Ordering",
+        "type": "String",
+        "editable": false,
+        "value": "${ customer.vip }",
+        "binding": {
+          "type": "property",
+          "name": "conditionExpression"
+        }
+      },
+      {
+        "label": "Label",
+        "type": "Text",
+        "value": "YEY YEA!",
+        "binding": {
+          "type": "property",
+          "name": "name"
+        }
+      }
+    ]
+  },
+  {
+    "$schema": "https://unpkg.com/@camunda/element-templates-json-schema@0.3.0/resources/schema.json",
+    "name": "WS Caller Task",
+    "id": "com.camunda.example.WsCaller",
+    "description": "Requires the user to provide a Web Service URL.",
+    "appliesTo": [
+      "bpmn:ServiceTask"
+    ],
+    "properties": [
+      {
+        "label": "Web Service URL",
+        "description": "Specify the url of the web service to talk to.",
+        "type": "String",
+        "binding": {
+          "type": "camunda:property",
+          "name": "webServiceUrl"
+        },
+        "constraints": {
+          "notEmpty": true,
+          "pattern": {
+            "value": "^https://.*",
+            "message": "Must be https URL."
+          }
+        }
+      },
+      {
+        "type": "Hidden",
+        "value": "com.camunda.example.WsCaller",
+        "binding": {
+          "type": "property",
+          "name": "camunda:class"
+        }
+      }
+    ]
+  },
+  {
+    "$schema": "https://unpkg.com/@camunda/element-templates-json-schema@0.3.0/resources/schema.json",
+    "name": "Check Invoice Task",
+    "id": "com.camunda.example.CheckInvoiceTask",
+    "appliesTo": [
+      "bpmn:UserTask"
+    ],
+    "properties": [
+      {
+        "label": "Candidate Users",
+        "description": "Users able to carry out this task",
+        "type": "String",
+        "value": "Walt, Jeff, Lisa",
+        "binding": {
+          "type": "property",
+          "name": "camunda:candidateUsers"
+        },
+        "constraints": {
+          "notEmpty": true,
+          "pattern": {
+            "value": "\\s*(\\w+,\\s?)*\\w+\\s*",
+            "message": "Use comma separated list of user names"
+          }
+        }
+      },
+      {
+        "label": "Candidate Groups",
+        "description": "Groups able to carry out this task",
+        "type": "String",
+        "value": "Backoffice",
+        "binding": {
+          "type": "property",
+          "name": "camunda:candidateGroups"
+        },
+        "constraints": {
+          "notEmpty": true,
+          "pattern": {
+            "value": "\\s*(\\w+,\\s?)*\\w+\\s*",
+            "message": "Use comma separated list of group names"
+          }
+        }
+      },
+      {
+        "label": "Task Priority",
+        "type": "Dropdown",
+        "value": "50",
+        "choices": [
+          { "name": "low", "value": "20" },
+          { "name": "medium", "value": "50" },
+          { "name": "height", "value": "100" }
+        ]
+      }
+    ]
+  }
+]

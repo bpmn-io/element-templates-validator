@@ -1,0 +1,62 @@
+{
+  "name": "@bpmn-io/element-templates-validator",
+  "version": "0.1.0",
+  "description": "Validate element templates based on JSON Schema",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "source": "lib/index.js",
+  "files": [
+    "dist/index.js",
+    "dist/index.esm.js"
+  ],
+  "scripts": {
+    "build": "rollup -c",
+    "distro": "run-s build test:build",
+    "lint": "eslint .",
+    "prepublishOnly": "run-s distro",
+    "test": "mocha -r esm --reporter=spec --recursive test/spec",
+    "test:build": "mocha --reporter=spec --recursive test/distro",
+    "all": "run-s lint build test distro"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bpmn-io/element-templates-validator.git"
+  },
+  "keywords": [
+    "json-schema",
+    "json-schema-validator",
+    "element templates",
+    "validator",
+    "validation"
+  ],
+  "author": {
+    "name": "Maciej Barelkowski",
+    "email": "maciej.barelkowski@camunda.com",
+    "url": "https://github.com/barmac"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bpmn-io/element-templates-validator/issues"
+  },
+  "homepage": "https://github.com/bpmn-io/element-templates-validator#readme",
+  "devDependencies": {
+    "@rollup/plugin-alias": "^3.1.2",
+    "@rollup/plugin-commonjs": "^17.1.0",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^11.2.0",
+    "ajv": "^7.2.4",
+    "ajv-errors": "^2.0.1",
+    "chai": "^4.3.4",
+    "eslint": "^7.22.0",
+    "eslint-plugin-bpmn-io": "^0.12.0",
+    "esm": "^3.2.25",
+    "mocha": "^8.3.2",
+    "npm-run-all": "^4.1.5",
+    "rollup": "^2.42.2"
+  },
+  "dependencies": {
+    "@camunda/element-templates-json-schema": "^0.3.1",
+    "json-source-map": "^0.6.1",
+    "min-dash": "^3.7.0"
+  }
+}
