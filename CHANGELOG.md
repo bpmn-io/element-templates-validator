@@ -8,4 +8,8 @@ ___Note:__ Yet to be released changes appear here._
 
 ## 0.1.0
 
+* `DEPS`: update `element-templates-json-schema` to `v0.4.0`
+
+## 0.1.0
+
 * `FEAT`: initial version :tada:
