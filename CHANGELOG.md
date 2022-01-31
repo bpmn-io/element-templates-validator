@@ -6,6 +6,10 @@ All notable changes to [element-templates-validator](https://github.com/bpmn-io/
 
 ___Note:__ Yet to be released changes appear here._
 
+## 0.4.0
+
+* `DEPS`: update `element-templates-json-schema` to `v0.6.0`
+
 ## 0.3.0
 
 * `DEPS`: update `element-templates-json-schema` to `v0.5.0`
