@@ -2,17 +2,25 @@ import { expect } from 'chai';
 
 import { map, keys } from 'min-dash';
 
-import * as validator from '../..';
+import {
+  getSchemaVersion,
+  validate,
+  validateAll,
+  getZeebeSchemaVersion,
+  validateZeebe,
+  validateAllZeebe
+} from '../..';
 
 
 describe('Validator', function() {
+
 
   describe('#getSchemaVersion', function() {
 
     it('should return schema version', function() {
 
       // then
-      expect(validator.getSchemaVersion()).to.eql(
+      expect(getSchemaVersion()).to.eql(
         require('@camunda/element-templates-json-schema/package.json').version);
     });
   });
@@ -30,7 +38,7 @@ describe('Validator', function() {
         errors,
         object,
         valid
-      } = validator.validate(sample);
+      } = validate(sample);
 
       // then
       expect(valid).to.be.true;
@@ -49,9 +57,7 @@ describe('Validator', function() {
         errors,
         object,
         valid
-      } = validator.validate(sample);
-
-      console.error(JSON.stringify(errors, null, 2));
+      } = validate(sample);
 
       const normalizedErrors = normalizeErrors(errors);
 
@@ -76,7 +82,7 @@ describe('Validator', function() {
       // when
       const {
         errors,
-      } = validator.validate(sample);
+      } = validate(sample);
 
       const error = errors[0];
 
@@ -100,7 +106,7 @@ describe('Validator', function() {
       const {
         valid,
         results
-      } = validator.validateAll(samples);
+      } = validateAll(samples);
 
       // then
       expect(valid).to.be.true;
@@ -121,7 +127,7 @@ describe('Validator', function() {
       const {
         valid,
         results
-      } = validator.validateAll(samples);
+      } = validateAll(samples);
 
       // then
       expect(valid).to.be.false;
@@ -142,7 +148,7 @@ describe('Validator', function() {
       // when
       const {
         results
-      } = validator.validateAll(samples);
+      } = validateAll(samples);
 
       // then
       const validObjects = results.filter(r => r.valid).map(r => r.object);
@@ -155,6 +161,163 @@ describe('Validator', function() {
     });
 
   });
+
+
+  describe('#getZeebeSchemaVersion', function() {
+
+    it('should return schema version', function() {
+
+      // then
+      expect(getZeebeSchemaVersion()).to.eql(
+        require('@camunda/zeebe-element-templates-json-schema/package.json').version);
+    });
+  });
+
+
+  describe('#validateZeebe', function() {
+
+    it('should validate', function() {
+
+      // given
+      const sample = require('../fixtures/rest-connector.json');
+
+      // when
+      const {
+        errors,
+        object,
+        valid
+      } = validateZeebe(sample);
+
+      // then
+      expect(valid).to.be.true;
+      expect(object).to.equal(sample);
+      expect(errors).not.to.exist;
+    });
+
+
+    it('should retrieve errors', function() {
+
+      // given
+      const sample = require('../fixtures/rest-connector-broken.json');
+
+      // when
+      const {
+        errors,
+        object,
+        valid
+      } = validateZeebe(sample);
+
+      const normalizedErrors = normalizeErrors(errors);
+
+      // then
+      expect(valid).to.be.false;
+      expect(object).to.equal(sample);
+
+      expect(normalizedErrors).to.eql([
+        { message: 'must provide choices=[] with "Dropdown" type' },
+        { message: 'invalid property.binding type "zeebe:taskDefinition:foo"; must be any of { property, zeebe:taskDefinition:type, zeebe:input, zeebe:output, zeebe:taskHeader }' },
+        { message: 'property.binding "zeebe:taskHeader" requires key' },
+        {
+          message: 'optional is not allowed for truthy "notEmpty" constraint'
+        },
+        { message: 'should be array', params: { type: 'array' } },
+        {
+          message: 'should match exactly one schema in oneOf',
+          params: { passingSchemas: null }
+        }
+      ]);
+    });
+
+
+    it('should set data pointer', function() {
+
+      // given
+      const sample = require('../fixtures/rest-connector-broken.json');
+
+      // when
+      const {
+        errors,
+      } = validateZeebe(sample);
+
+      const error = errors[1];
+
+      // then
+      expect(error.dataPointer).to.eql({
+        key: { line: 12, column: 8, pos: 267 },
+        keyEnd: { line: 12, column: 14, pos: 273 },
+        value: { line: 12, column: 16, pos: 275 },
+        valueEnd: { line: 12, column: 42, pos: 301 }
+      });
+    });
+  });
+
+
+  describe('#validateAllZeebe', function() {
+
+    it('should validate without errors', function() {
+
+      // given
+      const samples = require('../fixtures/multiple-connectors.json');
+
+      // when
+      const {
+        valid,
+        results
+      } = validateAllZeebe(samples);
+
+      // then
+      expect(valid).to.be.true;
+      expect(results.length).to.eql(samples.length);
+
+      expect(results.every(r => r.valid)).to.be.true;
+
+      expect(results.map(r => r.object)).to.eql(samples);
+    });
+
+
+    it('should validate with errors', function() {
+
+      // given
+      const samples = require('../fixtures/multiple-connectors-errors.json');
+
+      // when
+      const {
+        valid,
+        results
+      } = validateAllZeebe(samples);
+
+      // then
+      expect(valid).to.be.false;
+
+      expect(results.map(r => r.valid)).to.eql([
+        false, true, false, true
+      ]);
+
+      expect(results.map(r => r.object)).to.eql(samples);
+    });
+
+
+    it('should provide all valid objects', function() {
+
+      // given
+      const samples = require('../fixtures/multiple-connectors-errors.json');
+
+      // when
+      const {
+        results
+      } = validateAllZeebe(samples);
+
+      // then
+      const validObjects = results.filter(r => r.valid).map(r => r.object);
+
+      expect(validObjects).to.eql([
+        samples[1],
+        samples[3]
+      ]);
+    });
+
+  });
+
 });
 
 

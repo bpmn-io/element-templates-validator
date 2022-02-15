@@ -4,7 +4,10 @@ import commonjs from '@rollup/plugin-commonjs';
 import alias from '@rollup/plugin-alias';
 
 import pkg from './package.json';
-import { createStandaloneValidator } from './tasks/createStandaloneValidator.js';
+import {
+  createStandaloneValidator,
+  createStandaloneZeebeValidator
+} from './tasks/createStandaloneValidator.js';
 
 
 const srcEntry = pkg.source;
@@ -22,7 +25,8 @@ export default [
     plugins: [
       alias({
         entries: {
-          './validate': createStandaloneValidator()
+          './validate': createStandaloneValidator(),
+          './validateZeebe': createStandaloneZeebeValidator()
         }
       }),
       json(),
