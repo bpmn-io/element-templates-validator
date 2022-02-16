@@ -3,9 +3,11 @@ import { expect } from 'chai';
 import { map, keys } from 'min-dash';
 
 import {
+  getSchemaPackage,
   getSchemaVersion,
   validate,
   validateAll,
+  getZeebeSchemaPackage,
   getZeebeSchemaVersion,
   validateZeebe,
   validateAllZeebe
@@ -13,6 +15,17 @@ import {
 
 
 describe('Validator', function() {
+
+
+  describe('#getSchemaPackage', function() {
+
+    it('should return schema package', function() {
+
+      // then
+      expect(getSchemaPackage()).to.eql(
+        require('@camunda/element-templates-json-schema/package.json').name);
+    });
+  });
 
 
   describe('#getSchemaVersion', function() {
@@ -160,6 +173,17 @@ describe('Validator', function() {
       ]);
     });
 
+  });
+
+
+  describe('#getZeebeSchemaPackage', function() {
+
+    it('should return schema package', function() {
+
+      // then
+      expect(getZeebeSchemaPackage()).to.eql(
+        require('@camunda/zeebe-element-templates-json-schema/package.json').name);
+    });
   });
 
 
