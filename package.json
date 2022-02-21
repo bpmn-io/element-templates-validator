@@ -55,7 +55,7 @@
     "rollup": "^2.66.1"
   },
   "dependencies": {
-    "@camunda/element-templates-json-schema": "^0.6.0",
+    "@camunda/element-templates-json-schema": "^0.7.0",
     "@camunda/zeebe-element-templates-json-schema": "^0.1.0",
     "json-source-map": "^0.6.1",
     "min-dash": "^3.8.1"
