@@ -238,9 +238,28 @@ describe('Validator', function() {
       expect(object).to.equal(sample);
 
       expect(normalizedErrors).to.eql([
-        { message: 'must provide choices=[] with "Dropdown" type' },
-        { message: 'invalid property.binding type "zeebe:taskDefinition:foo"; must be any of { property, zeebe:taskDefinition:type, zeebe:input, zeebe:output, zeebe:taskHeader }' },
-        { message: 'property.binding "zeebe:taskHeader" requires key' },
+        {
+          message: 'must provide choices=[] with "Dropdown" type'
+        },
+        {
+          message: 'invalid property.binding type "zeebe:taskDefinition:foo"; must be any of { property, zeebe:taskDefinition:type, zeebe:input, zeebe:output, zeebe:taskHeader }'
+        },
+        {
+          message: 'property.binding "zeebe:taskHeader" requires key'
+        },
+        {
+          message: 'feel is only supported for "String" and "Text" type'
+        },
+        {
+          message: 'should be equal to one of the allowed values',
+          params: {
+            allowedValues: [
+              null,
+              'optional',
+              'required'
+            ]
+          }
+        },
         {
           message: 'optional is not allowed for truthy "notEmpty" constraint'
         },
