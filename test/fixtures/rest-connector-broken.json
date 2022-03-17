@@ -36,7 +36,8 @@
       "binding": {
         "type": "zeebe:taskHeader",
         "key": "method"
-      }
+      },
+      "feel": "optional"
     },
     {
       "label": "Request Body",
@@ -47,7 +48,8 @@
       "binding": {
         "type": "zeebe:input",
         "name": "body"
-      }
+      },
+      "feel": "yes"
     },
     {
       "label": "Result Variable",

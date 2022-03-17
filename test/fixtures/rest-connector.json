@@ -54,7 +54,8 @@
       "binding": {
         "type": "zeebe:input",
         "name": "body"
-      }
+      },
+      "feel": "optional"
     },
     {
       "label": "Result Variable",
