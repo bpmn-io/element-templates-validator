@@ -81,6 +81,7 @@ describe('Validator', function() {
       expect(normalizedErrors).to.eql([
         { message: 'should be object', params: { type: 'object' } },
         { message: 'should be string', params: { type: 'string' } },
+        { message: 'invalid item for "elementType", should contain namespaced property, example: "bpmn:Task"' },
         { message: 'should match exactly one schema in oneOf',
           params: { passingSchemas: null } }
       ]);
@@ -102,7 +103,7 @@ describe('Validator', function() {
       // then
       expect(error.dataPointer).to.eql({
         value: { line: 0, column: 0, pos: 0 },
-        valueEnd: { line: 177, column: 1, pos: 4825 }
+        valueEnd: { line: 180, column: 1, pos: 4877 }
       });
     });
   });
@@ -239,6 +240,9 @@ describe('Validator', function() {
 
       expect(normalizedErrors).to.eql([
         {
+          message: 'invalid item for "elementType", should contain namespaced property, example: "bpmn:Task"'
+        },
+        {
           message: 'must provide choices=[] with "Dropdown" type'
         },
         {
@@ -282,7 +286,7 @@ describe('Validator', function() {
         errors,
       } = validateZeebe(sample);
 
-      const error = errors[1];
+      const error = errors[2];
 
       // then
       expect(error.dataPointer).to.eql({

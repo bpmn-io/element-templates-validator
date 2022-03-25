@@ -112,7 +112,10 @@
         "type": "bpmn:Error"
       }
     ],
-    "version": 1616669450772
+    "version": 1616669450772,
+    "elementType": {
+      "value": "foobar"
+    }
   },
   {
     "name": "RPA Template v2",
