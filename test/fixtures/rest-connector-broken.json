@@ -65,5 +65,8 @@
         "notEmpty": true
       }
     }
-  ]
+  ],
+  "elementType": {
+    "value": "foobar"
+  }
 }

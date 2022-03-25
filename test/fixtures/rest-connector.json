@@ -68,5 +68,8 @@
         "source": "= body"
       }
     }
-  ]
+  ],
+  "elementType": {
+    "value": "bpmn:ServiceTask"
+  }
 }
