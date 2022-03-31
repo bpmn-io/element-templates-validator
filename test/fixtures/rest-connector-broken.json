@@ -68,5 +68,8 @@
   ],
   "elementType": {
     "value": "foobar"
+  },
+  "icon": {
+    "contents": "foo"
   }
 }
