@@ -267,6 +267,9 @@ describe('Validator', function() {
         {
           message: 'optional is not allowed for truthy "notEmpty" constraint'
         },
+        {
+          message: 'Malformed icon source, must be a valid HTTP(s) or data URL'
+        },
         { message: 'should be array', params: { type: 'array' } },
         {
           message: 'should match exactly one schema in oneOf',
