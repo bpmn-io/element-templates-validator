@@ -82,6 +82,7 @@ describe('Validator', function() {
         { message: 'should be object', params: { type: 'object' } },
         { message: 'should be string', params: { type: 'string' } },
         { message: 'invalid item for "elementType", should contain namespaced property, example: "bpmn:Task"' },
+        { message: 'missing elementType value' },
         { message: 'should match exactly one schema in oneOf',
           params: { passingSchemas: null } }
       ]);
@@ -103,7 +104,7 @@ describe('Validator', function() {
       // then
       expect(error.dataPointer).to.eql({
         value: { line: 0, column: 0, pos: 0 },
-        valueEnd: { line: 180, column: 1, pos: 4877 }
+        valueEnd: { line: 181, column: 1, pos: 4900 }
       });
     });
   });
