@@ -64,6 +64,14 @@
       "constraints": {
         "notEmpty": true
       }
+    },
+    {
+      "label": "static (string)",
+      "type": "String",
+      "value": "1",
+      "binding": {
+        "type": "zeebe:property"
+      }
     }
   ],
   "elementType": {

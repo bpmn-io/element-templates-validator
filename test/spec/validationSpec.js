@@ -247,7 +247,7 @@ describe('Validator', function() {
           message: 'must provide choices=[] with "Dropdown" type'
         },
         {
-          message: 'invalid property.binding type "zeebe:taskDefinition:foo"; must be any of { property, zeebe:taskDefinition:type, zeebe:input, zeebe:output, zeebe:taskHeader }'
+          message: 'invalid property.binding type "zeebe:taskDefinition:foo"; must be any of { property, zeebe:taskDefinition:type, zeebe:input, zeebe:output, zeebe:property, zeebe:taskHeader }'
         },
         {
           message: 'property.binding "zeebe:taskHeader" requires key'
@@ -267,6 +267,9 @@ describe('Validator', function() {
         },
         {
           message: 'optional is not allowed for truthy "notEmpty" constraint'
+        },
+        {
+          message: 'property.binding "zeebe:property" requires name'
         },
         {
           message: 'Malformed icon source, must be a valid HTTP(s) or data URL'
