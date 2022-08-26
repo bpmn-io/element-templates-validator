@@ -8,6 +8,7 @@ ___Note:__ Yet to be released changes appear here._
 
 ## 0.10.0
 
+* `DEPS`: update `element-templates-json-schema` to `v0.10.1`
 * `DEPS`: update `zeebe-element-templates-json-schema` to `v0.6.0`
 
 ## 0.9.0
