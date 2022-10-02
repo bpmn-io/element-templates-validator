@@ -13,9 +13,9 @@ export function createStandaloneValidator() {
 
   try {
     mkdir(dirname(filePath));
-  } catch {
+  } catch (err) {
 
-    // directory may already exist
+    // ignore; directory may already exist
   }
 
   writeFile(filePath, code);
@@ -29,9 +29,9 @@ export function createStandaloneZeebeValidator() {
 
   try {
     mkdir(dirname(filePath));
-  } catch {
+  } catch (err) {
 
-    // directory may already exist
+    // ignore; directory may already exist
   }
 
   writeFile(filePath, code);
