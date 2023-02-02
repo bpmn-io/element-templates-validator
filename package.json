@@ -6,13 +6,15 @@
   "module": "dist/index.esm.js",
   "source": "lib/index.js",
   "files": [
-    "dist"
+    "dist",
+    "tasks"
   ],
   "scripts": {
     "build": "rollup -c",
     "distro": "run-s build test:build",
     "lint": "eslint .",
     "prepublishOnly": "run-s distro",
+    "postinstall": "node tasks/createStandaloneValidator",
     "test": "mocha -r esm --reporter=spec --recursive test/spec",
     "test:build": "mocha --reporter=spec --recursive test/distro",
     "all": "run-s lint build test distro"
@@ -39,10 +41,8 @@
   },
   "homepage": "https://github.com/bpmn-io/element-templates-validator#readme",
   "devDependencies": {
-    "@rollup/plugin-alias": "^3.1.9",
     "@rollup/plugin-commonjs": "^22.0.2",
     "@rollup/plugin-json": "^4.1.0",
-    "@rollup/plugin-node-resolve": "^14.1.0",
     "ajv": "^7.2.4",
     "ajv-errors": "^2.0.1",
     "chai": "^4.3.6",

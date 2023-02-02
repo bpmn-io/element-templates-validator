@@ -1,40 +1,53 @@
-import standaloneCode from 'ajv/dist/standalone';
-import { writeFileSync as writeFile, mkdirSync as mkdir } from 'fs';
-import { join as pathJoin, dirname } from 'path';
+/* eslint-env node */
+const fs = require('fs');
+const { default: standaloneCode } = require('ajv/dist/standalone');
+const { join : pathJoin, dirname } = require('path');
 
-import validate, { ajv } from '../lib/validate';
+const { writeFileSync: writeFile, mkdirSync: mkdir } = fs;
 
-import validateZeebe, { ajv as zeebeAjv } from '../lib/validateZeebe';
+(function() {
 
-
-export function createStandaloneValidator() {
-  const code = standaloneCode(ajv, validate);
-  const filePath = pathJoin('tmp', 'standaloneValidator.js');
-
-  try {
-    mkdir(dirname(filePath));
-  } catch (err) {
-
-    // ignore; directory may already exist
+  if (!fs.existsSync('dist/')) {
+    console.log('build script has not run yet, exiting ...');
+    return;
   }
 
-  writeFile(filePath, code);
+  const { default: validate, ajv } = require('../dist/validate');
+  const { default: validateZeebe, ajv: zeebeAjv } = require('../dist/validateZeebe');
 
-  return filePath;
-}
 
-export function createStandaloneZeebeValidator() {
-  const code = standaloneCode(zeebeAjv, validateZeebe);
-  const filePath = pathJoin('tmp', 'standaloneZeebeValidator.js');
+  function createStandaloneValidator() {
+    const code = standaloneCode(ajv, validate);
+    const filePath = pathJoin('dist', 'validate.js');
 
-  try {
-    mkdir(dirname(filePath));
-  } catch (err) {
+    try {
+      mkdir(dirname(filePath));
+    } catch (err) {
 
     // ignore; directory may already exist
+    }
+
+    writeFile(filePath, code);
+
+    return filePath;
   }
 
-  writeFile(filePath, code);
+  function createStandaloneZeebeValidator() {
+    const code = standaloneCode(zeebeAjv, validateZeebe);
+    const filePath = pathJoin('dist', 'validateZeebe.js');
 
-  return filePath;
-}
+    try {
+      mkdir(dirname(filePath));
+    } catch (err) {
+
+    // ignore; directory may already exist
+    }
+
+    writeFile(filePath, code);
+
+    return filePath;
+  }
+
+  createStandaloneValidator();
+  createStandaloneZeebeValidator();
+})();

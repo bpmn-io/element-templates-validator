@@ -1,13 +1,7 @@
 import json from '@rollup/plugin-json';
-import { nodeResolve } from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
-import alias from '@rollup/plugin-alias';
 
 import pkg from './package.json';
-import {
-  createStandaloneValidator,
-  createStandaloneZeebeValidator
-} from './tasks/createStandaloneValidator.js';
 
 
 const srcEntry = pkg.source;
@@ -20,17 +14,32 @@ export default [
       { file: pkg.module, format: 'es' }
     ],
     external: [
-      'min-dash'
+      'min-dash',
+      './validate',
+      './validateZeebe'
     ],
     plugins: [
-      alias({
-        entries: {
-          './validate': createStandaloneValidator(),
-          './validateZeebe': createStandaloneZeebeValidator()
-        }
-      }),
       json(),
-      nodeResolve(),
+      commonjs()
+    ]
+  },
+  {
+    input: 'lib/validate.js',
+    output: [
+      { file: 'dist/validate.js', format: 'cjs' }
+    ],
+    plugins: [
+      json(),
+      commonjs()
+    ]
+  },
+  {
+    input: 'lib/validateZeebe.js',
+    output: [
+      { file: 'dist/validateZeebe.js', format: 'cjs' }
+    ],
+    plugins: [
+      json(),
       commonjs()
     ]
   }
