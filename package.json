@@ -41,6 +41,8 @@
   },
   "homepage": "https://github.com/bpmn-io/element-templates-validator#readme",
   "devDependencies": {
+    "@camunda/element-templates-json-schema": "^0.11.0",
+    "@camunda/zeebe-element-templates-json-schema": "^0.7.0",
     "@rollup/plugin-commonjs": "^22.0.2",
     "@rollup/plugin-json": "^4.1.0",
     "ajv": "^7.2.4",
@@ -54,9 +56,11 @@
     "rollup": "^2.79.1"
   },
   "dependencies": {
-    "@camunda/element-templates-json-schema": "^0.11.0",
-    "@camunda/zeebe-element-templates-json-schema": "^0.7.0",
     "json-source-map": "^0.6.1",
     "min-dash": "^4.0.0"
+  },
+  "peerDependencies": {
+    "@camunda/element-templates-json-schema": "*",
+    "@camunda/zeebe-element-templates-json-schema": "*"
   }
 }
