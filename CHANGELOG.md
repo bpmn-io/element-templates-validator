@@ -6,6 +6,13 @@ All notable changes to [element-templates-validator](https://github.com/bpmn-io/
 
 ___Note:__ Yet to be released changes appear here._
 
+## 0.12.0
+
+* `FEAT`: support `optional` for `zeebe:taskHeader` binding ([element-templates-json-schema#87](https://github.com/camunda/element-templates-json-schema/pull/87))
+* `DEPS`: update `element-templates-json-schema` to `v0.11.0`
+* `DEPS`: update `zeebe-element-templates-json-schema` to `v0.7.0`
+
+
 ## 0.11.0
 
 * `DEPS`: update to `min-dash@4`
