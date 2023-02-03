@@ -26,7 +26,7 @@ export default [
   {
     input: 'lib/validate.js',
     output: [
-      { file: 'dist/validate.js', format: 'cjs' }
+      { file: 'dist/raw/validate.js', format: 'cjs' }
     ],
     plugins: [
       json(),
@@ -36,7 +36,7 @@ export default [
   {
     input: 'lib/validateZeebe.js',
     output: [
-      { file: 'dist/validateZeebe.js', format: 'cjs' }
+      { file: 'dist/raw/validateZeebe.js', format: 'cjs' }
     ],
     plugins: [
       json(),
