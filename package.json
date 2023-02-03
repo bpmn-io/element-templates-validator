@@ -10,7 +10,9 @@
     "tasks"
   ],
   "scripts": {
-    "build": "rollup -c",
+    "build": "run-s build:distro build:standalone",
+    "build:distro": "rollup -c",
+    "build:standalone": "node tasks/createStandaloneValidator",
     "distro": "run-s build test:build",
     "lint": "eslint .",
     "prepublishOnly": "run-s distro",
