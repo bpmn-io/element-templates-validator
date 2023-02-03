@@ -7,17 +7,24 @@ const { writeFileSync: writeFile, mkdirSync: mkdir } = fs;
 
 (function() {
 
+  // dist not built yet
   if (!fs.existsSync('dist/')) {
-    console.log('build script has not run yet, exiting ...');
     return;
   }
 
-  const { default: validate, ajv } = require('../dist/validate');
-  const { default: validateZeebe, ajv: zeebeAjv } = require('../dist/validateZeebe');
+  const validate = require('../dist/validate');
+  const validateZeebe = require('../dist/validateZeebe');
 
+  const ajv = validate.ajv;
+  const zeebeAjv = validateZeebe.ajv;
+
+  // already standalone
+  if (!ajv || !zeebeAjv) {
+    return;
+  }
 
   function createStandaloneValidator() {
-    const code = standaloneCode(ajv, validate);
+    const code = standaloneCode(ajv, validate.default);
     const filePath = pathJoin('dist', 'validate.js');
 
     try {
@@ -26,14 +33,13 @@ const { writeFileSync: writeFile, mkdirSync: mkdir } = fs;
 
     // ignore; directory may already exist
     }
-
     writeFile(filePath, code);
 
     return filePath;
   }
 
   function createStandaloneZeebeValidator() {
-    const code = standaloneCode(zeebeAjv, validateZeebe);
+    const code = standaloneCode(zeebeAjv, validateZeebe.default);
     const filePath = pathJoin('dist', 'validateZeebe.js');
 
     try {
