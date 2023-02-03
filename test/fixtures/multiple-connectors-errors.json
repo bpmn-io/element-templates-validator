@@ -94,6 +94,16 @@
         }
       },
       {
+        "label": "REST Endpoint URL",
+        "description": "Specify the url of the REST API to talk to.",
+        "type": "String",
+        "optional": true,
+        "binding": {
+          "type": "zeebe:taskHeader",
+          "key": "url"
+        }
+      },
+      {
         "label": "Request Body",
         "description": "Data to send to the endpoint.",
         "value": "",
@@ -137,8 +147,8 @@
         "type": "String",
         "optional": true,
         "binding": {
-          "type": "zeebe:taskHeader",
-          "key": "url"
+          "type": "property",
+          "name": "url"
         }
       },
       {
