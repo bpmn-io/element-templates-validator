@@ -253,6 +253,12 @@ describe('Validator', function() {
           message: 'property.binding "zeebe:taskHeader" requires key'
         },
         {
+          message: 'should be string',
+          params : {
+            type: 'string'
+          }
+        },
+        {
           message: 'feel is only supported for "String" and "Text" type'
         },
         {
@@ -273,6 +279,12 @@ describe('Validator', function() {
         },
         {
           message: 'Malformed icon source, must be a valid HTTP(s) or data URL'
+        },
+        {
+          message: 'should be string',
+          params: {
+            type: 'string'
+          }
         },
         { message: 'should be array', params: { type: 'array' } },
         {

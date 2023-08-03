@@ -16,6 +16,7 @@
     {
       "label": "REST Endpoint URL",
       "description": "Specify the url of the REST API to talk to.",
+      "tooltip": ["This is the URL of the REST API to talk to."],
       "type": "String",
       "binding": {
         "type": "zeebe:taskHeader"
@@ -79,5 +80,12 @@
   },
   "icon": {
     "contents": "foo"
-  }
+  },
+  "groups": [
+    {
+      "id": "rest-connector",
+      "label": "REST parameters",
+      "tooltip": ["Configure the REST connector."]
+    }
+  ]
 }
