@@ -284,5 +284,16 @@
         ]
       }
     ]
+  },
+  {
+    "$schema": "https://unpkg.com/@camunda/element-templates-json-schema/resources/schema.json",
+    "name": "Deprecated Upgrade",
+    "id": "deprecated-upgrade",
+    "deprecated": "Removed without replacement",
+    "appliesTo": [
+      "bpmn:ServiceTask"
+    ],
+    "version": 1,
+    "properties": []
   }
 ]
