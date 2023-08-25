@@ -237,5 +237,30 @@
         }
       }
     ]
+  },
+  {
+    "name": "invalid conditions",
+    "id": "io.camunda.invalidConditions",
+    "appliesTo": [
+      "bpmn:ServiceTask"
+    ],
+    "properties": [
+      {
+        "label": "REST Method",
+        "description": "Specify the HTTP method to use.",
+        "type": "Dropdown",
+        "value": "get",
+        "choices": [
+          { "name": "GET", "value": "get" },
+          { "name": "POST", "value": "post" },
+          { "name": "PATCH", "value": "patch" },
+          { "name": "DELETE", "value": "delete", "condition": "invalidCondition"}
+        ],
+        "binding": {
+          "type": "zeebe:taskHeader",
+          "key": "method"
+        }
+      }
+    ]
   }
 ]
