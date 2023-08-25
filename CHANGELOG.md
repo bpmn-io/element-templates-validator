@@ -6,6 +6,12 @@ All notable changes to [element-templates-validator](https://github.com/bpmn-io/
 
 ___Note:__ Yet to be released changes appear here._
 
+## 1.1.0
+
+* `FEAT`: support conditions for dropdown choices
+* `DEPS`: update to `@camunda/element-templates-json-schema@0.14.0`
+* `DEPS`: update to `@camunda/zeebe-element-templates-json-schema@0.12.0`
+
 ## 1.0.0
 
 * `FEAT`: support `deprecated` property for templates
