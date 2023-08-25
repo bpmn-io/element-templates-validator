@@ -6,6 +6,12 @@ All notable changes to [element-templates-validator](https://github.com/bpmn-io/
 
 ___Note:__ Yet to be released changes appear here._
 
+## 1.0.0
+
+* `FEAT`: support `deprecated` property for templates
+* `DEPS`: update to `@camunda/element-templates-json-schema@0.13.0`
+* `DEPS`: update to `@camunda/zeebe-element-templates-json-schema@0.11.0`
+
 ## 0.15.0
 
 * `FEAT`: support tooltips in template groups and properties in zeebe schema
