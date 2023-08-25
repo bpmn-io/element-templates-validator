@@ -132,6 +132,7 @@
         }
       },
       {
+        "id": "url",
         "label": "REST Endpoint URL",
         "description": "Specify the url of the REST API to talk to.",
         "type": "String",
@@ -156,7 +157,10 @@
           { "name": "GET", "value": "get" },
           { "name": "POST", "value": "post" },
           { "name": "PATCH", "value": "patch" },
-          { "name": "DELETE", "value": "delete" }
+          { "name": "DELETE", "value": "delete", "condition": {
+              "property": "url",
+              "equals": "https://foo.bar"
+          }}
         ],
         "binding": {
           "type": "zeebe:taskHeader",
