@@ -11,7 +11,11 @@ import {
   getZeebeSchemaVersion,
   validateZeebe,
   validateAllZeebe
-} from '../..';
+} from '../../dist/index.mjs';
+
+import { createRequire } from 'node:module';
+
+const require = createRequire(import.meta.url);
 
 
 describe('Validator', function() {

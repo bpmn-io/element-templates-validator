@@ -15,7 +15,7 @@ describe('validate module', function() {
       validateZeebe,
       validateAllZeebe,
       getZeebeSchemaVersion
-    } = require('../../dist');
+    } = require('../..');
 
     // then
     expect(validate).to.exist;
