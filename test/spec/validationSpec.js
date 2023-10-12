@@ -11,7 +11,7 @@ import {
   getZeebeSchemaVersion,
   validateZeebe,
   validateAllZeebe
-} from '../../dist/index.mjs';
+} from '../../dist/index.js';
 
 import { createRequire } from 'node:module';
 
