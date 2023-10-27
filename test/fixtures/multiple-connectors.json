@@ -128,7 +128,16 @@
         "type": "Hidden",
         "value": "http",
         "binding": {
-          "type": "zeebe:taskDefinition:type"
+          "type": "zeebe:taskDefinition",
+          "property": "type"
+        }
+      },
+      {
+        "type": "Hidden",
+        "value": "5",
+        "binding": {
+          "type": "zeebe:taskDefinition",
+          "property": "retries"
         }
       },
       {
