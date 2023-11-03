@@ -6,6 +6,10 @@ All notable changes to [element-templates-validator](https://github.com/bpmn-io/
 
 ___Note:__ Yet to be released changes appear here._
 
+## 1.4.0
+
+_Re-published v1.3.0._
+
 ## 1.3.0
 
 ### Camunda 8 templates
