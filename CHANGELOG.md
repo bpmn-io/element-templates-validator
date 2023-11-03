@@ -10,9 +10,9 @@ ___Note:__ Yet to be released changes appear here._
 
 ### Camunda 8 templates
 
-* `FEAT`: add `zeebe:taskDefinition` binding ([#117](https://github.com/camunda/element-templates-json-schema/pull/117))
-* `FEAT`: mark `zeebe:taskDefinition:type` as deprecated ([#117](https://github.com/camunda/element-templates-json-schema/pull/117))
-* `FEAT`: remove `zeebe:taskDefinition:retries` binding ([#117](https://github.com/camunda/element-templates-json-schema/pull/117))
+* `FEAT`: add `zeebe:taskDefinition` binding ([camunda/element-templates-json-schema#117](https://github.com/camunda/element-templates-json-schema/pull/117))
+* `FEAT`: mark `zeebe:taskDefinition:type` as deprecated ([camunda/element-templates-json-schema#117](https://github.com/camunda/element-templates-json-schema/pull/117))
+* `FEAT`: remove `zeebe:taskDefinition:retries` binding ([camunda/element-templates-json-schema#117](https://github.com/camunda/element-templates-json-schema/pull/117))
 * `DEPS`: update to `@camunda/zeebe-element-templates-json-schema@0.13.0`
 
 ## 1.2.0
