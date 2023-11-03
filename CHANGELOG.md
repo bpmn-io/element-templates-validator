@@ -6,17 +6,26 @@ All notable changes to [element-templates-validator](https://github.com/bpmn-io/
 
 ___Note:__ Yet to be released changes appear here._
 
+## 1.3.0
+
+### Camunda 8 templates
+
+* `FEAT`: add `zeebe:taskDefinition` binding ([#117](https://github.com/camunda/element-templates-json-schema/pull/117))
+* `FEAT`: mark `zeebe:taskDefinition:type` as deprecated ([#117](https://github.com/camunda/element-templates-json-schema/pull/117))
+* `FEAT`: remove `zeebe:taskDefinition:retries` binding ([#117](https://github.com/camunda/element-templates-json-schema/pull/117))
+* `DEPS`: update to `@camunda/zeebe-element-templates-json-schema@0.13.0`
+
 ## 1.2.0
 
 ### Camunda 8 templates
 
 * `FEAT`: support `group/openByDefault` property ([camunda/element-templates-json-schema#114](https://github.com/camunda/element-templates-json-schema/pull/114))
-* `DEPS`: update to `@camunda/zeebe-element-templates-json-schema@0.12.0`
+* `DEPS`: update to `@camunda/zeebe-element-templates-json-schema@0.13.0`
 
 ### Camunda 7 templates
 
 * `FEAT`: support `camunda:executionListener` with `implementationType` property binding ([camunda/element-templates-json-schema#113](https://github.com/camunda/element-templates-json-schema/pull/113))
-* `DEPS`: update to `@camunda/element-templates-json-schema@0.14.0`
+* `DEPS`: update to `@camunda/element-templates-json-schema@0.15.0`
 
 ## 1.1.0
 
