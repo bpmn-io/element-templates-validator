@@ -6,6 +6,11 @@ All notable changes to [element-templates-validator](https://github.com/bpmn-io/
 
 ___Note:__ Yet to be released changes appear here._
 
+## 1.5.0
+
+* `FEAT`: support receive and send task templating ([#27](https://github.com/bpmn-io/element-templates-validator/pull/27))
+* `DEPS`: update to `@camunda/zeebe-element-templates-json-schema@0.15.0`
+
 ## 1.4.0
 
 _Re-published v1.3.0._
