@@ -253,7 +253,10 @@
         "choices": [
           { "name": "GET", "value": "get" },
           { "name": "POST", "value": "post" },
-          { "name": "PATCH", "value": "patch" },
+          { "name": "PATCH", "value": "patch", "condition": {
+            "property": "url",
+            "isActive": "true"
+          }},
           { "name": "DELETE", "value": "delete", "condition": "invalidCondition"}
         ],
         "binding": {

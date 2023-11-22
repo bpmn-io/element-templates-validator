@@ -165,7 +165,10 @@
         "choices": [
           { "name": "GET", "value": "get" },
           { "name": "POST", "value": "post" },
-          { "name": "PATCH", "value": "patch" },
+          { "name": "PATCH", "value": "patch", "condition": {
+            "property": "url",
+            "isActive": true
+        }},
           { "name": "DELETE", "value": "delete", "condition": {
               "property": "url",
               "equals": "https://foo.bar"
@@ -185,8 +188,7 @@
         "binding": {
           "type": "zeebe:input",
           "name": "body"
-        }
-      },
+        }},
       {
         "label": "Result Variable",
         "description": "Name of variable to store the response data in.",
