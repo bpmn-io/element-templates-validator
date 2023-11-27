@@ -56,8 +56,8 @@
   },
   "dependencies": {
     "@camunda/element-templates-json-schema": "^0.16.0",
-    "@camunda/zeebe-element-templates-json-schema": "^0.16.0",
+    "@camunda/zeebe-element-templates-json-schema": "^0.16.1",
     "json-source-map": "^0.6.1",
-    "min-dash": "^4.0.0"
+    "min-dash": "^4.1.1"
   }
 }

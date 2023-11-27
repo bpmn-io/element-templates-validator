@@ -6,6 +6,12 @@ All notable changes to [element-templates-validator](https://github.com/bpmn-io/
 
 ___Note:__ Yet to be released changes appear here._
 
+## 1.6.1
+
+* `FIX`: remove `zeebe:subscription` templating for send task
+* `DEPS`: update to `@camunda/zeebe-element-templates-json-schema@0.16.0`
+* `DEPS`: update to `min-dash@4.1.1`
+
 ## 1.6.0
 
 * `FEAT`: support `isActive` condition ([#28](https://github.com/bpmn-io/element-templates-validator/pull/28))
