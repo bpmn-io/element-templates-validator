@@ -6,6 +6,11 @@ All notable changes to [element-templates-validator](https://github.com/bpmn-io/
 
 ___Note:__ Yet to be released changes appear here._
 
+## 1.7.0
+
+* `FEAT`: support `zeebe:calledElement` templating
+* `DEPS`: update to `@camunda/zeebe-element-templates-json-schema@0.17.0`
+
 ## 1.6.1
 
 * `FIX`: remove `zeebe:subscription` templating for send task

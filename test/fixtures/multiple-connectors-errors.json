@@ -265,5 +265,20 @@
         }
       }
     ]
+  },
+  {
+    "name": "invalid called element",
+    "id": "io.camunda.invalidCalledElement",
+    "appliesTo": [
+      "bpmn:CallActivity"
+    ],
+    "properties": [
+      {
+        "binding": {
+          "type": "zeebe:calledElement",
+          "property": "unknown"
+        }
+      }
+    ]
   }
 ]

@@ -360,7 +360,7 @@ describe('Validator', function() {
       expect(valid).to.be.false;
 
       expect(results.map(r => r.valid)).to.eql([
-        false, true, false, true, false
+        false, true, false, true, false, false
       ]);
 
       expect(results.map(r => r.object)).to.eql(samples);

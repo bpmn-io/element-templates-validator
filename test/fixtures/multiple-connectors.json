@@ -201,5 +201,20 @@
         }
       }
     ]
+  },
+  {
+    "name": "valid called element",
+    "id": "io.camunda.validCalledElement",
+    "appliesTo": [
+      "bpmn:CallActivity"
+    ],
+    "properties": [
+      {
+        "binding": {
+          "type": "zeebe:calledElement",
+          "property": "processId"
+        }
+      }
+    ]
   }
 ]
