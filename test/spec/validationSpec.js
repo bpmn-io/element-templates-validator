@@ -263,15 +263,24 @@ describe('Validator', function() {
           }
         },
         {
-          message: 'feel is only supported for "String" and "Text" type'
+          message: 'feel is only supported for "String", "Text", "Number" and "Boolean" type'
         },
         {
           message: 'should be equal to one of the allowed values',
           params: {
             allowedValues: [
-              null,
               'optional',
               'required'
+            ]
+          }
+        },
+        {
+          message: 'should be equal to one of the allowed values',
+          params: {
+            allowedValues: [
+              'optional',
+              'required',
+              'static'
             ]
           }
         },
