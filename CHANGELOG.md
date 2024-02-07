@@ -6,6 +6,13 @@ All notable changes to [element-templates-validator](https://github.com/bpmn-io/
 
 ___Note:__ Yet to be released changes appear here._
 
+## 1.8.0
+
+* `FEAT`: support `Boolean` and `Number` on all bindings ([element-templates-json-schema#132](https://github.com/camunda/element-templates-json-schema/pull/132))
+* `FEAT`: support FEEL value `static` for `Boolean` and `Number` types ([element-templates-json-schema#132](https://github.com/camunda/element-templates-json-schema/pull/132))
+* `FEAT`: disallow condition depending on containing property ([element-templates-json-schema#125](https://github.com/camunda/element-templates-json-schema/issues/125))
+* `DEPS`: update to `@camunda/zeebe-element-templates-json-schema@0.19.0`
+
 ## 1.7.0
 
 * `FEAT`: support `zeebe:calledElement` templating

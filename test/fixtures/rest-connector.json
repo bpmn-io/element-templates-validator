@@ -96,6 +96,24 @@
         "name": "optional"
       },
       "optional": true
+    },
+    {
+      "label": "FEEL (Number)",
+      "type": "Number",
+      "binding": {
+        "type": "zeebe:property",
+        "name": "feelNumber"
+      },
+      "feel": "static"
+    },
+    {
+      "label": "FEEL (Boolean)",
+      "type": "Number",
+      "binding": {
+        "type": "zeebe:property",
+        "name": "feelNumber"
+      },
+      "feel": "static"
     }
   ],
   "elementType": {
