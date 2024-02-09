@@ -41,7 +41,7 @@ This will print detailed information about errors inside the sample:
     "params": {
       "type": "object"
     },
-    "message": "should be object",
+    "message": "must be object",
     "dataPointer": {
       "value": {
         "line": 0,

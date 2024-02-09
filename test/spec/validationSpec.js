@@ -83,11 +83,11 @@ describe('Validator', function() {
       expect(object).to.equal(sample);
 
       expect(normalizedErrors).to.eql([
-        { message: 'should be object', params: { type: 'object' } },
-        { message: 'should be string', params: { type: 'string' } },
+        { message: 'must be object', params: { type: 'object' } },
+        { message: 'must be string', params: { type: 'string' } },
         { message: 'invalid item for "elementType", should contain namespaced property, example: "bpmn:Task"' },
         { message: 'missing elementType value' },
-        { message: 'should match exactly one schema in oneOf',
+        { message: 'must match exactly one schema in oneOf',
           params: { passingSchemas: null } }
       ]);
     });
@@ -257,7 +257,7 @@ describe('Validator', function() {
           message: 'property.binding "zeebe:taskHeader" requires key'
         },
         {
-          message: 'should be string',
+          message: 'must be string',
           params : {
             type: 'string'
           }
@@ -266,7 +266,7 @@ describe('Validator', function() {
           message: 'feel is only supported for "String", "Text", "Number" and "Boolean" type'
         },
         {
-          message: 'should be equal to one of the allowed values',
+          message: 'must be equal to one of the allowed values',
           params: {
             allowedValues: [
               'optional',
@@ -275,7 +275,7 @@ describe('Validator', function() {
           }
         },
         {
-          message: 'should be equal to one of the allowed values',
+          message: 'must be equal to one of the allowed values',
           params: {
             allowedValues: [
               'optional',
@@ -294,14 +294,14 @@ describe('Validator', function() {
           message: 'Malformed icon source, must be a valid HTTP(s) or data URL'
         },
         {
-          message: 'should be string',
+          message: 'must be string',
           params: {
             type: 'string'
           }
         },
-        { message: 'should be array', params: { type: 'array' } },
+        { message: 'must be array', params: { type: 'array' } },
         {
-          message: 'should match exactly one schema in oneOf',
+          message: 'must match exactly one schema in oneOf',
           params: { passingSchemas: null }
         }
       ]);
