@@ -6,6 +6,13 @@ All notable changes to [element-templates-validator](https://github.com/bpmn-io/
 
 ___Note:__ Yet to be released changes appear here._
 
+## 1.8.1
+
+* `FIX`: do not mark allOf and choices conditions as invalid
+* `DEPS`: update to @camunda/element-templates-json-schema@0.17.1
+* `DEPS`: update to @camunda/zeebe-element-templates-json-schema@0.19.1
+* `CHORE`: update to `ajv@8`
+
 ## 1.8.0
 
 * `FEAT`: support `Boolean` and `Number` on all bindings ([element-templates-json-schema#132](https://github.com/camunda/element-templates-json-schema/pull/132))
