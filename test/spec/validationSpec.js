@@ -111,6 +111,7 @@ describe('Validator', function() {
         valueEnd: { line: 181, column: 1, pos: 4900 }
       });
     });
+
   });
 
 
