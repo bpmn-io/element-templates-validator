@@ -8,12 +8,12 @@ ___Note:__ Yet to be released changes appear here._
 
 ## 2.0.0
 
-_Re-published v1.8.1._
-
 * `FIX`: do not mark allOf and choices conditions as invalid
+* `CHORE`: alias to absolute path ([#39](https://github.com/bpmn-io/element-templates-validator/pull/39))
 * `DEPS`: update to @camunda/element-templates-json-schema@0.17.1
 * `DEPS`: update to @camunda/zeebe-element-templates-json-schema@0.19.1
-* `CHORE`: update to `ajv@8`
+* `DEPS`: update to `ajv@8.12.0`
+* `DEPS`: update to `ajv-errors@3`
 
 ### Breaking Changes
 
