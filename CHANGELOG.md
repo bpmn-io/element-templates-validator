@@ -6,6 +6,10 @@ All notable changes to [element-templates-validator](https://github.com/bpmn-io/
 
 ___Note:__ Yet to be released changes appear here._
 
+## 1.8.2
+
+_Re-published v1.8.0._
+
 ## 1.8.1
 
 * `FIX`: do not mark allOf and choices conditions as invalid
