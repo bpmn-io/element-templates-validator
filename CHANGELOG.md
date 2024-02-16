@@ -6,6 +6,20 @@ All notable changes to [element-templates-validator](https://github.com/bpmn-io/
 
 ___Note:__ Yet to be released changes appear here._
 
+## 2.0.0
+
+_Re-published v1.8.1._
+
+* `FIX`: do not mark allOf and choices conditions as invalid
+* `DEPS`: update to @camunda/element-templates-json-schema@0.17.1
+* `DEPS`: update to @camunda/zeebe-element-templates-json-schema@0.19.1
+* `CHORE`: update to `ajv@8`
+
+### Breaking Changes
+
+* `dataPath` property on error objects are renamed to `instancePath`
+* error messages use "must" instead of "should"
+
 ## 1.8.2
 
 _Re-published v1.8.0._
