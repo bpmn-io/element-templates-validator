@@ -6,6 +6,13 @@ All notable changes to [element-templates-validator](https://github.com/bpmn-io/
 
 ___Note:__ Yet to be released changes appear here._
 
+## 2.0.1
+
+* `FIX`: allow number values for `Number` properties ([element-templates-json-schema#138](https://github.com/camunda/element-templates-json-schema/issues/138))
+* `FIX`: enforce string value for `feel: required` properties ([element-templates-json-schema#139](https://github.com/camunda/element-templates-json-schema/pull/139))
+* `DEPS`: update to @camunda/element-templates-json-schema@0.17.2
+* `DEPS`: update to @camunda/zeebe-element-templates-json-schema@0.19.2
+
 ## 2.0.0
 
 * `FIX`: do not mark allOf and choices conditions as invalid
