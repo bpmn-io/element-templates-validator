@@ -6,6 +6,12 @@ All notable changes to [element-templates-validator](https://github.com/bpmn-io/
 
 ___Note:__ Yet to be released changes appear here._
 
+## 2.1.0
+
+* `FEAT`: support `placeholder` property ([camunda/element-templates-json-schema#144](https://github.com/camunda/element-templates-json-schema/pull/144))
+* `DEPS`: update to `@camunda/element-templates-json-schema@0.18.0`
+* `DEPS`: update to `@camunda/zeebe-element-templates-json-schema@0.20.0`
+
 ## 2.0.1
 
 * `FIX`: allow number values for `Number` properties ([element-templates-json-schema#138](https://github.com/camunda/element-templates-json-schema/issues/138))

@@ -305,5 +305,33 @@
     ],
     "version": 1,
     "properties": []
+  },
+  {
+    "name": "Placeholder",
+    "id": "placeholder",
+    "appliesTo": [
+      "bpmn:ServiceTask"
+    ],
+    "version": 1,
+    "properties": [
+      {
+        "label": "Placeholder",
+        "type": "String",
+        "binding": {
+          "type": "property",
+          "name": "name"
+        },
+        "placeholder": "abc"
+      },
+      {
+        "label": "Placeholder",
+        "type": "Text",
+        "binding": {
+          "type": "property",
+          "name": "name"
+        },
+        "placeholder": "abc"
+      }
+    ]
   }
 ]
