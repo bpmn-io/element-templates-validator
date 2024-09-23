@@ -41,7 +41,7 @@
   "homepage": "https://github.com/bpmn-io/element-templates-validator#readme",
   "devDependencies": {
     "@rollup/plugin-alias": "^5.1.0",
-    "@rollup/plugin-commonjs": "^26.0.0",
+    "@rollup/plugin-commonjs": "^28.0.0",
     "@rollup/plugin-json": "^6.1.0",
     "@rollup/plugin-node-resolve": "^15.2.3",
     "ajv": "^8.12.0",
