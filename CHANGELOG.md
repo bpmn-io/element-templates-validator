@@ -6,6 +6,12 @@ All notable changes to [element-templates-validator](https://github.com/bpmn-io/
 
 ___Note:__ Yet to be released changes appear here._
 
+## 2.2.0
+
+* `FEAT`: support `engines` property for zeebe templates ([#146](https://github.com/camunda/element-templates-json-schema/issues/146), [#152](https://github.com/camunda/element-templates-json-schema/pull/152))
+* `DEPS`: update to `@camunda/element-templates-json-schema@0.18.1`
+* `DEPS`: update to `@camunda/zeebe-element-templates-json-schema@0.21.0`
+
 ## 2.1.0
 
 * `FEAT`: support `placeholder` property ([camunda/element-templates-json-schema#144](https://github.com/camunda/element-templates-json-schema/pull/144))
