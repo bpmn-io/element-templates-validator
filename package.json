@@ -1,6 +1,6 @@
 {
   "name": "@bpmn-io/element-templates-validator",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "Validate element templates based on JSON Schema",
   "type": "module",
   "main": "dist/index.cjs",
