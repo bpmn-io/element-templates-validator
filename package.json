@@ -51,11 +51,11 @@
     "eslint-plugin-bpmn-io": "^2.0.2",
     "esm": "^3.2.25",
     "mocha": "^10.8.2",
-    "npm-run-all2": "^7.0.0",
+    "npm-run-all2": "^7.0.1",
     "rollup": "^4.28.0"
   },
   "dependencies": {
-    "@camunda/element-templates-json-schema": "^0.18.0",
+    "@camunda/element-templates-json-schema": "^0.18.1",
     "@camunda/zeebe-element-templates-json-schema": "^0.20.0",
     "json-source-map": "^0.6.1",
     "min-dash": "^4.1.1"
