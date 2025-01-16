@@ -1,0 +1,45 @@
+[
+  {
+    "$schema": "https://unpkg.com/@camunda/zeebe-element-templates-json-schema/resources/schema.json",
+    "name": "linkedResource missing linkName",
+    "id": "linkedResource-missing-linkName",
+    "version": 1,
+    "appliesTo": [
+      "bpmn:Task"
+    ],
+    "elementType": {
+      "value": "bpmn:ServiceTask"
+    },
+    "properties": [
+      {
+        "type": "String",
+        "binding": {
+          "type": "zeebe:linkedResource",
+          "property": "resourceType"
+        }
+      }
+    ]
+  },
+  {
+    "$schema": "https://unpkg.com/@camunda/zeebe-element-templates-json-schema/resources/schema.json",
+    "name": "linkedResource missing linkName",
+    "id": "linkedResource-invalid-binding",
+    "version": 1,
+    "appliesTo": [
+      "bpmn:Task"
+    ],
+    "elementType": {
+      "value": "bpmn:ServiceTask"
+    },
+    "properties": [
+      {
+        "type": "String",
+        "binding": {
+          "type": "zeebe:linkedResource",
+          "linkName": "persistedLink",
+          "property": "invalidProperty"
+        }
+      }
+    ]
+  }
+]
