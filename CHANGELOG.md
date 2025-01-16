@@ -8,7 +8,7 @@ ___Note:__ Yet to be released changes appear here._
 
 ## 2.3.0
 
-* `FEAT`: support `linkedElements` property for zeebe templates ([#153](https://github.com/camunda/element-templates-json-schema/pull/153))
+* `FEAT`: support `linkedElements` property for zeebe templates ([camunda/element-templates-json-schema#153](https://github.com/camunda/element-templates-json-schema/pull/153))
 * `DEPS`: update to `@camunda/zeebe-element-templates-json-schema@0.23.0`
 
 ## 2.2.0
