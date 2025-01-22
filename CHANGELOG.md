@@ -6,6 +6,11 @@ All notable changes to [element-templates-validator](https://github.com/bpmn-io/
 
 ___Note:__ Yet to be released changes appear here._
 
+## 2.3.1
+
+* `FIX`: require `feel` for `Boolean` and `Number` inputs and outputs ([camunda/element-templates-json-schema#154](https://github.com/camunda/element-templates-json-schema/pull/154))
+* `DEPS`: update to `@camunda/zeebe-element-templates-json-schema@0.22.1`
+
 ## 2.3.0
 
 * `FEAT`: support `linkedElements` property for zeebe templates ([camunda/element-templates-json-schema#153](https://github.com/camunda/element-templates-json-schema/pull/153))
