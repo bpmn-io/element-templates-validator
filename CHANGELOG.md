@@ -6,9 +6,14 @@ All notable changes to [element-templates-validator](https://github.com/bpmn-io/
 
 ___Note:__ Yet to be released changes appear here._
 
+## 2.3.2
+
+* `FIX`: require `feel` to be `optional` or `static` for `Boolean` and `Number` inputs and outputs ([camunda/element-templates-json-schema#156](https://github.com/camunda/element-templates-json-schema/pull/156))
+* `DEPS`: update to `@camunda/zeebe-element-templates-json-schema@0.22.2`
+
 ## 2.3.1
 
-* `FIX`: require `feel` for `Boolean` and `Number` inputs and outputs ([camunda/element-templates-json-schema#154](https://github.com/camunda/element-templates-json-schema/pull/154))
+* `FIX`: require `feel` to be `static` for `Boolean` and `Number` inputs and outputs ([camunda/element-templates-json-schema#154](https://github.com/camunda/element-templates-json-schema/pull/154))
 * `DEPS`: update to `@camunda/zeebe-element-templates-json-schema@0.22.1`
 
 ## 2.3.0
