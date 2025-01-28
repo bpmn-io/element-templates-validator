@@ -6,6 +6,11 @@ All notable changes to [element-templates-validator](https://github.com/bpmn-io/
 
 ___Note:__ Yet to be released changes appear here._
 
+## 2.3.3
+
+* `FIX`: make `feel=static` the default but value for `zeebe:input` and `zeebe:output` properties ([camunda/element-templates-json-schema#157](https://github.com/camunda/element-templates-json-schema/pull/157))
+* `DEPS`: update to `@camunda/zeebe-element-templates-json-schema@0.22.3`
+
 ## 2.3.2
 
 * `FIX`: require `feel` to be `optional` or `static` for `Boolean` and `Number` inputs and outputs ([camunda/element-templates-json-schema#156](https://github.com/camunda/element-templates-json-schema/pull/156))
