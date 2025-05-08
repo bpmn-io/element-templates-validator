@@ -6,6 +6,13 @@ All notable changes to [element-templates-validator](https://github.com/bpmn-io/
 
 ___Note:__ Yet to be released changes appear here._
 
+## 2.4.0
+
+* `FEAT`: support `zeebe:userTask` property for zeebe templates ([camunda/element-templates-json-schema#162](https://github.com/camunda/element-templates-json-schema/pull/162))
+* `FEAT`: support `keywords` property ([camunda/element-templates-json-schema#159](https://github.com/camunda/element-templates-json-schema/pull/159))
+* `DEPS`: update to `@camunda/element-templates-json-schema@0.19.0`
+* `DEPS`: update to `@camunda/zeebe-element-templates-json-schema@0.23.0`
+
 ## 2.3.3
 
 * `FIX`: make `feel=static` the default but value for `zeebe:input` and `zeebe:output` properties ([camunda/element-templates-json-schema#157](https://github.com/camunda/element-templates-json-schema/pull/157))
