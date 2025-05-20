@@ -1,0 +1,145 @@
+[
+  {
+    "$schema": "https://unpkg.com/@camunda/zeebe-element-templates-json-schema/resources/schema.json",
+    "name": "Called Desision with invalid property",
+    "id": "called-decision-invalid-property",
+    "description": "A reusable rule template",
+    "version": 1,
+    "engines": {
+      "camunda": "^8.6"
+    },
+    "appliesTo": [
+      "bpmn:Task"
+    ],
+    "elementType": {
+      "value": "bpmn:BusinessRuleTask"
+    },
+    "properties": [
+      {
+        "type": "Hidden",
+        "value": "aValue",
+        "binding": {
+          "type": "zeebe:calledDecision",
+          "property": "youShallNotPass"
+        }
+      }
+    ]
+  },
+  {
+    "$schema": "https://unpkg.com/@camunda/zeebe-element-templates-json-schema/resources/schema.json",
+    "name": "Called Decision with incorrect type",
+    "id": "called-decision-invalid-element-type",
+    "description": "A reusable rule template",
+    "version": 1,
+    "engines": {
+      "camunda": "^8.6"
+    },
+    "appliesTo": [
+      "bpmn:Task"
+    ],
+    "elementType": {
+      "value": "bpmn:Task"
+    },
+    "properties": [
+      {
+        "type": "Hidden",
+        "value": "aReusableRule",
+        "binding": {
+          "type": "zeebe:calledDecision",
+          "property": "decisionId"
+        }
+      },
+      {
+        "type": "Hidden",
+        "value": "aResultVariable",
+        "binding": {
+          "type": "zeebe:calledDecision",
+          "property": "resultVariable"
+        }
+      }
+    ]
+  },
+  {
+    "$schema": "https://unpkg.com/@camunda/zeebe-element-templates-json-schema/resources/schema.json",
+    "name": "Called Decision with missing decisionId",
+    "id": "called-decision-missing-decisionId",
+    "description": "A reusable rule template",
+    "version": 1,
+    "engines": {
+      "camunda": "^8.6"
+    },
+    "appliesTo": [
+      "bpmn:Task"
+    ],
+    "elementType": {
+      "value": "bpmn:BusinessRuleTask"
+    },
+    "properties": [
+      {
+        "type": "Hidden",
+        "value": "aResultVariable",
+        "binding": {
+          "type": "zeebe:calledDecision",
+          "property": "resultVariable"
+        }
+      }
+    ]
+  },
+  {
+    "$schema": "https://unpkg.com/@camunda/zeebe-element-templates-json-schema/resources/schema.json",
+    "name": "Called Decision with missing element type",
+    "id": "called-decision-missing-element-type",
+    "description": "A reusable rule template",
+    "version": 1,
+    "engines": {
+      "camunda": "^8.6"
+    },
+    "appliesTo": [
+      "bpmn:Task"
+    ],
+    "properties": [
+      {
+        "type": "Hidden",
+        "value": "aReusableRule",
+        "binding": {
+          "type": "zeebe:calledDecision",
+          "property": "decisionId"
+        }
+      },
+      {
+        "type": "Hidden",
+        "value": "aResultVariable",
+        "binding": {
+          "type": "zeebe:calledDecision",
+          "property": "resultVariable"
+        }
+      }
+    ]
+  },
+  {
+    "$schema": "https://unpkg.com/@camunda/zeebe-element-templates-json-schema/resources/schema.json",
+    "name": "Called Decision with missing resultVariable",
+    "id": "called-decision-missing-resultVariable",
+    "description": "A reusable rule template",
+    "version": 1,
+    "engines": {
+      "camunda": "^8.6"
+    },
+    "appliesTo": [
+      "bpmn:Task"
+    ],
+    "elementType": {
+      "value": "bpmn:BusinessRuleTask"
+    },
+    "properties": [
+      {
+        "type": "Hidden",
+        "value": "aDecisionId",
+        "binding": {
+          "type": "zeebe:calledDecision",
+          "property": "decisionId"
+        }
+      }
+    ]
+  }
+]
