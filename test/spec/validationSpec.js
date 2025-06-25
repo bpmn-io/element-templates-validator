@@ -252,14 +252,14 @@ describe('Validator', function() {
           message: 'must provide choices=[] with "Dropdown" type'
         },
         {
-          message: 'invalid property.binding type "zeebe:taskDefinition:foo"; must be any of { property, zeebe:taskDefinition:type, zeebe:input, zeebe:output, zeebe:property, zeebe:taskHeader, bpmn:Message#property, bpmn:Message#zeebe:subscription#property, zeebe:taskDefinition, zeebe:calledElement, zeebe:linkedResource, zeebe:userTask }'
+          message: 'invalid property.binding type "zeebe:taskDefinition:foo"; must be any of { property, zeebe:taskDefinition:type, zeebe:input, zeebe:output, zeebe:property, zeebe:taskHeader, bpmn:Message#property, bpmn:Message#zeebe:subscription#property, zeebe:taskDefinition, zeebe:calledElement, zeebe:linkedResource, zeebe:userTask, zeebe:formDefinition, zeebe:calledDecision, zeebe:script }'
         },
         {
           message: 'property.binding "zeebe:taskHeader" requires key'
         },
         {
           message: 'must be string',
-          params : {
+          params: {
             type: 'string'
           }
         },
@@ -474,10 +474,145 @@ describe('Validator', function() {
       expect(results.map(r => r.object)).to.eql(samples);
     });
 
+
+    it('should validate form definition templates', function() {
+
+      // given
+      const samples = require('../fixtures/form-definition.json');
+
+      // when
+      const {
+        valid,
+        results
+      } = validateAllZeebe(samples);
+
+      // then
+      expect(valid).to.be.true;
+      expect(results.length).to.eql(samples.length);
+
+      expect(results.every(r => r.valid)).to.be.true;
+
+      expect(results.map(r => r.object)).to.eql(samples);
+    });
+
+
+    it('should validate form definition templates with errors', function() {
+
+      // given
+      const samples = require('../fixtures/form-definition-broken.json');
+
+      // when
+      const {
+        valid,
+        results
+      } = validateAllZeebe(samples);
+
+      // then
+      expect(valid).to.be.false;
+      expect(results.every(r => !r.valid)).to.be.true;
+      expect(results.map(r => r.object)).to.eql(samples);
+    });
+
+
+    it('should validate called decision templates', function() {
+
+      // given
+      const samples = require('../fixtures/called-decision.json');
+
+      // when
+      const {
+        valid,
+        results
+      } = validateAllZeebe(samples);
+
+      // then
+      expect(valid).to.be.true;
+      expect(results.length).to.eql(samples.length);
+
+      expect(results.every(r => r.valid)).to.be.true;
+
+      expect(results.map(r => r.object)).to.eql(samples);
+    });
+
+
+    it('should validate called decision templates with errors', function() {
+
+      // given
+      const samples = require('../fixtures/called-decision-broken.json');
+
+      // when
+      const {
+        valid,
+        results
+      } = validateAllZeebe(samples);
+
+      // then
+      expect(valid).to.be.false;
+      expect(results.every(r => !r.valid)).to.be.true;
+      expect(results.map(r => r.object)).to.eql(samples);
+    });
+
+
+    it('should validate script task templates', function() {
+
+      // given
+      const samples = require('../fixtures/script-task.json');
+
+      // when
+      const {
+        valid,
+        results
+      } = validateAllZeebe(samples);
+
+      // then
+      expect(valid).to.be.true;
+      expect(results.length).to.eql(samples.length);
+
+      expect(results.every(r => r.valid)).to.be.true;
+
+      expect(results.map(r => r.object)).to.eql(samples);
+    });
+
+
+    it('should validate script task templates with errors', function() {
+
+      // given
+      const samples = require('../fixtures/script-task-broken.json');
+
+      // when
+      const {
+        valid,
+        results
+      } = validateAllZeebe(samples);
+
+      // then
+      expect(valid).to.be.false;
+      expect(results.every(r => !r.valid)).to.be.true;
+      expect(results.map(r => r.object)).to.eql(samples);
+    });
+
+
+    it('should validate script task templates with job worker', function() {
+
+      // given
+      const samples = require('../fixtures/script-task-job-worker.json');
+
+      // when
+      const {
+        valid,
+        results
+      } = validateAllZeebe(samples);
+
+      // then
+      expect(valid).to.be.true;
+      expect(results.length).to.eql(samples.length);
+
+      expect(results.every(r => r.valid)).to.be.true;
+
+      expect(results.map(r => r.object)).to.eql(samples);
+    });
   });
-
 });
-
 
 // helper //////////////
 

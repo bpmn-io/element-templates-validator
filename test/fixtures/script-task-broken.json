@@ -1,0 +1,145 @@
+[
+  {
+    "$schema": "https://unpkg.com/@camunda/zeebe-element-templates-json-schema/resources/schema.json",
+    "name": "Script task with invalid property",
+    "id": "script-task-invalid-property",
+    "description": "A reusable script template",
+    "version": 1,
+    "engines": {
+      "camunda": "^8.6"
+    },
+    "appliesTo": [
+      "bpmn:Task"
+    ],
+    "elementType": {
+      "value": "bpmn:ScriptTask"
+    },
+    "properties": [
+      {
+        "type": "Hidden",
+        "value": "aValue",
+        "binding": {
+          "type": "zeebe:script",
+          "property": "youShallNotPass"
+        }
+      }
+    ]
+  },
+  {
+    "$schema": "https://unpkg.com/@camunda/zeebe-element-templates-json-schema/resources/schema.json",
+    "name": "Script task with incorrect type",
+    "id": "script-task-invalid-element-type",
+    "description": "A reusable script template",
+    "version": 1,
+    "engines": {
+      "camunda": "^8.6"
+    },
+    "appliesTo": [
+      "bpmn:Task"
+    ],
+    "elementType": {
+      "value": "bpmn:Task"
+    },
+    "properties": [
+      {
+        "type": "Hidden",
+        "value": "=1 + 1",
+        "binding": {
+          "type": "zeebe:script",
+          "property": "expression"
+        }
+      },
+      {
+        "type": "Hidden",
+        "value": "aResultVariable",
+        "binding": {
+          "type": "zeebe:script",
+          "property": "resultVariable"
+        }
+      }
+    ]
+  },
+  {
+    "$schema": "https://unpkg.com/@camunda/zeebe-element-templates-json-schema/resources/schema.json",
+    "name": "Script task with missing expression",
+    "id": "script-task-missing-expression",
+    "description": "A reusable script template",
+    "version": 1,
+    "engines": {
+      "camunda": "^8.6"
+    },
+    "appliesTo": [
+      "bpmn:Task"
+    ],
+    "elementType": {
+      "value": "bpmn:ScriptTask"
+    },
+    "properties": [
+      {
+        "type": "Hidden",
+        "value": "aResultVariable",
+        "binding": {
+          "type": "zeebe:script",
+          "property": "resultVariable"
+        }
+      }
+    ]
+  },
+  {
+    "$schema": "https://unpkg.com/@camunda/zeebe-element-templates-json-schema/resources/schema.json",
+    "name": "Script task with missing element type",
+    "id": "script-task-missing-element-type",
+    "description": "A reusable script template",
+    "version": 1,
+    "engines": {
+      "camunda": "^8.6"
+    },
+    "appliesTo": [
+      "bpmn:Task"
+    ],
+    "properties": [
+      {
+        "type": "Hidden",
+        "value": "=1 + 1",
+        "binding": {
+          "type": "zeebe:script",
+          "property": "expression"
+        }
+      },
+      {
+        "type": "Hidden",
+        "value": "aResultVariable",
+        "binding": {
+          "type": "zeebe:script",
+          "property": "resultVariable"
+        }
+      }
+    ]
+  },
+  {
+    "$schema": "https://unpkg.com/@camunda/zeebe-element-templates-json-schema/resources/schema.json",
+    "name": "Script task with missing resultVariable",
+    "id": "script-task-missing-resultVariable",
+    "description": "A reusable script template",
+    "version": 1,
+    "engines": {
+      "camunda": "^8.6"
+    },
+    "appliesTo": [
+      "bpmn:Task"
+    ],
+    "elementType": {
+      "value": "bpmn:ScriptTask"
+    },
+    "properties": [
+      {
+        "type": "Hidden",
+        "value": "=1 + 1",
+        "binding": {
+          "type": "zeebe:script",
+          "property": "expression"
+        }
+      }
+    ]
+  }
+]

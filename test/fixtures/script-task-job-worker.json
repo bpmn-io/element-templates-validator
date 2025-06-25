@@ -1,0 +1,35 @@
+[
+  {
+    "name": "Reusable Script Template",
+    "id": "io.camunda.examples.Script",
+    "description": "A reusable script template",
+    "version": 1,
+    "engines": {
+      "camunda": "^8.6"
+    },
+    "appliesTo": [
+      "bpmn:Task"
+    ],
+    "elementType": {
+      "value": "bpmn:ScriptTask"
+    },
+    "properties": [
+      {
+        "type": "Hidden",
+        "value": "my-job-worker",
+        "binding": {
+          "type": "zeebe:taskDefinition",
+          "property": "type"
+        }
+      },
+      {
+        "type": "Hidden",
+        "value": "3",
+        "binding": {
+          "type": "zeebe:taskDefinition",
+          "property": "retries"
+        }
+      }
+    ]
+  }
+]
