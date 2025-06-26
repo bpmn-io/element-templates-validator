@@ -6,6 +6,14 @@ All notable changes to [element-templates-validator](https://github.com/bpmn-io/
 
 ___Note:__ Yet to be released changes appear here._
 
+## 2.5.0
+
+* `FEAT`: support `category` ([`5f28c1f`](https://github.com/bpmn-io/element-templates-validator/commit/5f28c1f40910a75fd5557dbfa0fa6cfaee2dccd2))
+* `FEAT`: support `zeebe:formDefinition` ([#56](https://github.com/bpmn-io/element-templates-validator/pull/56))
+* `FEAT`: support `zeebe:calledDecision` ([#56](https://github.com/bpmn-io/element-templates-validator/pull/56))
+* `FEAT`: support `bpmn:ScriptTask` with `zeebe:script` and `zeebe:taskDefinition` ([#56](https://github.com/bpmn-io/element-templates-validator/pull/56))
+* `DEPS`: update to `@camunda/zeebe-element-templates-json-schema@0.24.0`
+
 ## 2.4.0
 
 * `FEAT`: support `zeebe:userTask` property for zeebe templates ([camunda/element-templates-json-schema#162](https://github.com/camunda/element-templates-json-schema/pull/162))
