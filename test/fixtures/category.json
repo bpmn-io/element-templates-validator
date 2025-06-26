@@ -1,0 +1,15 @@
+[
+  {
+    "appliesTo": [
+      "bpmn:ServiceTask"
+    ],
+    "description": "foo",
+    "id": "category",
+    "name": "Category",
+    "properties": [],
+    "category": {
+      "id": "id",
+      "name": "name"
+    }
+  }
+]

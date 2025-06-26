@@ -1,0 +1,39 @@
+[
+  {
+    "appliesTo": [
+      "bpmn:ServiceTask"
+    ],
+    "description": "foo",
+    "id": "category-missing-id",
+    "name": "Category Missing ID",
+    "properties": [],
+    "category": {
+      "name": "name"
+    }
+  },
+  {
+    "appliesTo": [
+      "bpmn:ServiceTask"
+    ],
+    "description": "foo",
+    "id": "category-missing-name",
+    "name": "Category Missing Name",
+    "properties": [],
+    "category": {
+      "id": "id"
+    }
+  },
+  {
+    "appliesTo": [
+      "bpmn:ServiceTask"
+    ],
+    "description": "foo",
+    "id": "category-wrong-types",
+    "name": "Category Wrong Types",
+    "properties": [],
+    "category": {
+      "id": 2,
+      "name": []
+    }
+  }
+]
