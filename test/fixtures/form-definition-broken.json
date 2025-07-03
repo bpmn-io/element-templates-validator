@@ -73,5 +73,43 @@
         }
       }
     ]
+  },
+  {
+    "$schema": "https://unpkg.com/@camunda/zeebe-element-templates-json-schema/resources/schema.json",
+    "name": "Reusable Rule Template",
+    "id": "sometemplate",
+    "description": "some description",
+    "version": 1,
+    "appliesTo": [
+      "bpmn:Task"
+    ],
+    "elementType": {
+      "value": "bpmn:UserTask"
+    },
+    "properties": [
+      {
+        "type": "Hidden",
+        "binding": {
+          "type": "zeebe:userTask"
+        }
+      },
+      {
+        "type": "String",
+        "value": "someReference",
+        "feel": "optional",
+        "binding": {
+          "type": "zeebe:formDefinition",
+          "property": "externalReference"
+        }
+      },
+      {
+        "type": "Hidden",
+        "value": "someReference",
+        "binding": {
+          "type": "zeebe:formDefinition",
+          "property": "formId"
+        }
+      }
+    ]
   }
 ]

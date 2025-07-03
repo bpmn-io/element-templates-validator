@@ -1,0 +1,37 @@
+[
+  {
+    "appliesTo": [
+      "bpmn:AdHocSubProcess"
+    ],
+    "description": "foo",
+    "id": "property",
+    "name": "Property",
+    "properties": [
+      {
+        "type": "String",
+        "binding": {
+          "type": "property",
+          "name": "completionCondition"
+        }
+      }
+    ]
+  },
+  {
+    "appliesTo": [
+      "bpmn:AdHocSubProcess"
+    ],
+    "description": "foo",
+    "id": "property",
+    "name": "Property",
+    "properties": [
+      {
+        "feel": "optional",
+        "type": "String",
+        "binding": {
+          "type": "property",
+          "name": "completionCondition"
+        }
+      }
+    ]
+  }
+]
