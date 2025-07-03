@@ -6,6 +6,13 @@ All notable changes to [element-templates-validator](https://github.com/bpmn-io/
 
 ___Note:__ Yet to be released changes appear here._
 
+## 2.6.0
+
+* `FEAT`: require `feel` for `bpmn:Expression` properties ([camunda/element-templates-json-schema#176](https://github.com/camunda/element-templates-json-schema/pull/176))
+* `FIX`: fix invalid error message about binding type ([camunda/element-templates-json-schema#178](https://github.com/camunda/element-templates-json-schema/pull/178))
+* `FIX`: ensure that `formId` and `externalResource` cannot be used together ([camunda/element-templates-json-schema#175](https://github.com/camunda/element-templates-json-schema/pull/175))
+* `DEPS`: update to `@camunda/zeebe-element-templates-json-schema@0.25.1`
+
 ## 2.5.0
 
 * `FEAT`: support `category` ([`5f28c1f`](https://github.com/bpmn-io/element-templates-validator/commit/5f28c1f40910a75fd5557dbfa0fa6cfaee2dccd2))
