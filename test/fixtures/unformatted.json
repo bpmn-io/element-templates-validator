@@ -1,0 +1,23 @@
+{
+        "$schema": "https://unpkg.com/@camunda/zeebe-element-templates-json-schema/resources/schema.json",
+        "name": "Reusable Rule Template",
+        "id": "io.camunda.examples.Decision",
+        "description": "A reusable rule template",
+        "version": 1,
+
+        "appliesTo": [
+            "bpmn:Task",
+            "bpmn:BusinessRuleTask"
+        ],
+
+        "properties": [
+            {
+                "type": "Hidden",
+                "value": "name",
+                "binding": {
+                    "type": "property",
+                    "name": "name"
+                }
+            }
+        ]
+}

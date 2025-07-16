@@ -59,7 +59,12 @@ This will print detailed information about errors inside the sample:
 ]
 ```
 
-It's also possible to validate multiple objects at once
+If you pass a JSON string to the `validateZeebe` and `validate` functions, the dataPointers of the errors will reflect the correct position in the original string.
+
+If a parsed JSON object is passed, the `dataPointers` may not match the original string.
+In this case, ensure to format your JSON before validating it, using the canonical format (e.g., with `JSON.stringify(sample, null, 2)`).
+
+It's also possible to validate multiple objects at once. In this case, the list of templates supports only objects, not strings.
 
 ```js
 import { validateAll } from '@bpmn-io/element-templates-validator';
