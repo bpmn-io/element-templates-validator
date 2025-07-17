@@ -513,6 +513,43 @@ describe('Validator', function() {
       expect(results.map(r => r.object)).to.eql(samples);
     });
 
+    it('should validate called element templates', function() {
+
+      // given
+      const samples = require('../fixtures/called-element.json');
+
+      // when
+      const {
+        valid,
+        results
+      } = validateAllZeebe(samples);
+
+      // then
+      expect(valid).to.be.true;
+      expect(results.length).to.eql(samples.length);
+
+      expect(results.every(r => r.valid)).to.be.true;
+
+      expect(results.map(r => r.object)).to.eql(samples);
+    });
+
+    it('should validate called element templates with errors', function() {
+
+      // given
+      const samples = require('../fixtures/called-element-broken.json');
+
+      // when
+      const {
+        valid,
+        results
+      } = validateAllZeebe(samples);
+
+      // then
+      expect(valid).to.be.false;
+      expect(results.every(r => !r.valid)).to.be.true;
+      expect(results.map(r => r.object)).to.eql(samples);
+    });
+
 
     it('should validate called decision templates', function() {
 
