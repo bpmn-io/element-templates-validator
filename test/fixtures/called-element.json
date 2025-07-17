@@ -1,0 +1,149 @@
+[
+  {
+    "$schema": "https://unpkg.com/@camunda/zeebe-element-templates-json-schema/resources/schema.json",
+    "id": "io.camunda.examples.calledElement",
+    "name": "Called Element Template",
+    "version": 1,
+    "appliesTo": [
+      "bpmn:Task"
+    ],
+    "elementType": {
+      "value": "bpmn:CallActivity"
+    },
+    "properties": [
+      {
+        "type": "String",
+        "binding": {
+          "type": "zeebe:calledElement",
+          "property": "processId"
+        }
+      }
+    ]
+  },
+  {
+    "$schema": "https://unpkg.com/@camunda/zeebe-element-templates-json-schema/resources/schema.json",
+    "id": "io.camunda.examples.calledElement",
+    "name": "Called Element Template",
+    "version": 2,
+    "appliesTo": [
+      "bpmn:Activity"
+    ],
+    "elementType": {
+      "value": "bpmn:CallActivity"
+    },
+    "properties": [
+      {
+        "type": "String",
+        "binding": {
+          "type": "zeebe:calledElement",
+          "property": "processId"
+        }
+      },
+      {
+        "type": "Hidden",
+        "value": "latest",
+        "binding": {
+          "type": "zeebe:calledElement",
+          "property": "bindingType"
+        }
+      }
+    ]
+  },
+  {
+    "$schema": "https://unpkg.com/@camunda/zeebe-element-templates-json-schema/resources/schema.json",
+    "id": "io.camunda.examples.calledElement",
+    "name": "Called Element Template",
+    "version": 3,
+    "appliesTo": [
+      "bpmn:Activity",
+      "bpmn:Task"
+    ],
+    "elementType": {
+      "value": "bpmn:CallActivity"
+    },
+    "properties": [
+      {
+        "type": "String",
+        "binding": {
+          "type": "zeebe:calledElement",
+          "property": "processId"
+        }
+      },
+      {
+        "type": "Hidden",
+        "value": "versionTag",
+        "binding": {
+          "type": "zeebe:calledElement",
+          "property": "bindingType"
+        }
+      },
+      {
+        "type": "String",
+        "value": "v1",
+        "binding": {
+          "type": "zeebe:calledElement",
+          "property": "versionTag"
+        }
+      }
+    ]
+  },
+  {
+    "$schema": "https://unpkg.com/@camunda/zeebe-element-templates-json-schema/resources/schema.json",
+    "id": "io.camunda.examples.calledElement",
+    "name": "Called Element Template",
+    "version": 3,
+    "appliesTo": [
+      "bpmn:Activity",
+      "bpmn:Task"
+    ],
+    "elementType": {
+      "value": "bpmn:CallActivity"
+    },
+    "properties": [
+      {
+        "type": "String",
+        "binding": {
+          "type": "zeebe:calledElement",
+          "property": "processId"
+        }
+      },
+      {
+        "type": "Dropdown",
+        "label": "Binding",
+        "id": "bindingType",
+        "binding": {
+          "type": "zeebe:calledElement",
+          "property": "bindingType"
+        },
+        "choices": [
+          {
+            "name": "Latest",
+            "value": "latest"
+          },
+          {
+            "name": "Deployment",
+            "value": "deployment"
+          },
+          {
+            "name": "Version Tag",
+            "value": "versionTag"
+          }
+        ],
+        "value": "latest"
+      },
+      {
+        "type": "String",
+        "label": "Version tag",
+        "value": "v1",
+        "binding": {
+          "type": "zeebe:calledElement",
+          "property": "versionTag"
+        },
+        "condition": {
+          "property": "bindingType",
+          "equals": "versionTag"
+        }
+      }
+    ]
+  }
+]
