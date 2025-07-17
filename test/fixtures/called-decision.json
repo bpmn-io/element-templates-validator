@@ -33,5 +33,130 @@
         }
       }
     ]
+  },
+  {
+    "$schema": "https://unpkg.com/@camunda/zeebe-element-templates-json-schema/resources/schema.json",
+    "name": "Reusable Rule Template",
+    "id": "io.camunda.examples.Decision",
+    "version": 2,
+    "appliesTo": [
+      "bpmn:Task",
+      "bpmn:BusinessRuleTask"
+    ],
+    "elementType": {
+      "value": "bpmn:BusinessRuleTask"
+    },
+    "properties": [
+      {
+        "type": "Hidden",
+        "value": "aReusableRule",
+        "binding": {
+          "type": "zeebe:calledDecision",
+          "property": "decisionId"
+        }
+      },
+      {
+        "type": "Hidden",
+        "value": "aResultVariable",
+        "binding": {
+          "type": "zeebe:calledDecision",
+          "property": "resultVariable"
+        }
+      },
+      {
+        "type": "Hidden",
+        "value": "latest",
+        "binding": {
+          "type": "zeebe:calledDecision",
+          "property": "bindingType"
+        }
+      }
+    ]
+  },
+  {
+    "$schema": "https://unpkg.com/@camunda/zeebe-element-templates-json-schema/resources/schema.json",
+    "name": "Reusable Rule Template",
+    "id": "io.camunda.examples.Decision",
+    "version": 3,
+    "appliesTo": [
+      "bpmn:Task",
+      "bpmn:BusinessRuleTask"
+    ],
+    "elementType": {
+      "value": "bpmn:BusinessRuleTask"
+    },
+    "properties": [
+      {
+        "type": "Hidden",
+        "value": "aReusableRule",
+        "binding": {
+          "type": "zeebe:calledDecision",
+          "property": "decisionId"
+        }
+      },
+      {
+        "type": "Hidden",
+        "value": "aResultVariable",
+        "binding": {
+          "type": "zeebe:calledDecision",
+          "property": "resultVariable"
+        }
+      },
+      {
+        "type": "Hidden",
+        "value": "latest",
+        "binding": {
+          "type": "zeebe:calledDecision",
+          "property": "bindingType"
+        }
+      }
+    ]
+  },
+  {
+    "$schema": "https://unpkg.com/@camunda/zeebe-element-templates-json-schema/resources/schema.json",
+    "name": "Reusable Rule Template",
+    "id": "io.camunda.examples.Decision",
+    "version": 4,
+    "appliesTo": [
+      "bpmn:Task",
+      "bpmn:BusinessRuleTask"
+    ],
+    "elementType": {
+      "value": "bpmn:BusinessRuleTask"
+    },
+    "properties": [
+      {
+        "type": "Hidden",
+        "value": "aReusableRule",
+        "binding": {
+          "type": "zeebe:calledDecision",
+          "property": "decisionId"
+        }
+      },
+      {
+        "type": "Hidden",
+        "value": "aResultVariable",
+        "binding": {
+          "type": "zeebe:calledDecision",
+          "property": "resultVariable"
+        }
+      },
+      {
+        "type": "Hidden",
+        "value": "versionTag",
+        "binding": {
+          "type": "zeebe:calledDecision",
+          "property": "bindingType"
+        }
+      },
+      {
+        "type": "Hidden",
+        "value": "v1",
+        "binding": {
+          "type": "zeebe:calledDecision",
+          "property": "versionTag"
+        }
+      }
+    ]
   }
 ]
