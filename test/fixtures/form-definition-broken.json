@@ -111,5 +111,106 @@
         }
       }
     ]
+  },
+  {
+    "$schema": "https://unpkg.com/@camunda/zeebe-element-templates-json-schema/resources/schema.json",
+    "name": "Reusable Rule Template",
+    "id": "sometemplate",
+    "version": 2,
+    "appliesTo": [
+      "bpmn:Task"
+    ],
+    "elementType": {
+      "value": "bpmn:UserTask"
+    },
+    "properties": [
+      {
+        "type": "Hidden",
+        "binding": {
+          "type": "zeebe:userTask"
+        }
+      },
+      {
+        "type": "String",
+        "value": "someReference",
+        "feel": "optional",
+        "binding": {
+          "type": "zeebe:formDefinition",
+          "property": "externalReference"
+        }
+      },
+      {
+        "type": "Hidden",
+        "value": "latest",
+        "binding": {
+          "type": "zeebe:formDefinition",
+          "property": "bindingType"
+        }
+      }
+    ]
+  },
+  {
+    "$schema": "https://unpkg.com/@camunda/zeebe-element-templates-json-schema/resources/schema.json",
+    "name": "Reusable Rule Template",
+    "id": "sometemplate",
+    "version": 2,
+    "appliesTo": [
+      "bpmn:Task"
+    ],
+    "elementType": {
+      "value": "bpmn:UserTask"
+    },
+    "properties": [
+      {
+        "type": "Hidden",
+        "binding": {
+          "type": "zeebe:userTask"
+        }
+      },
+      {
+        "type": "String",
+        "value": "someReference",
+        "binding": {
+          "type": "zeebe:formDefinition",
+          "property": "formId"
+        }
+      },
+      {
+        "type": "Hidden",
+        "value": "versionTag",
+        "binding": {
+          "type": "zeebe:formDefinition",
+          "property": "bindingType"
+        }
+      }
+    ]
+  },
+  {
+    "$schema": "https://unpkg.com/@camunda/zeebe-element-templates-json-schema/resources/schema.json",
+    "name": "Reusable Rule Template",
+    "id": "sometemplate",
+    "version": 2,
+    "appliesTo": [
+      "bpmn:Task"
+    ],
+    "elementType": {
+      "value": "bpmn:UserTask"
+    },
+    "properties": [
+      {
+        "type": "Hidden",
+        "binding": {
+          "type": "zeebe:userTask"
+        }
+      },
+      {
+        "type": "Hidden",
+        "value": "deployment",
+        "binding": {
+          "type": "zeebe:formDefinition",
+          "property": "bindingType"
+        }
+      }
+    ]
   }
 ]
