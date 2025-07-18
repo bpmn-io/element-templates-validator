@@ -59,7 +59,7 @@ describe('Validator', function() {
 
       // then
       expect(valid).to.be.true;
-      expect(object).to.equal(sample);
+      expect(object).to.eql(sample);
       expect(errors).not.to.exist;
     });
 
@@ -80,7 +80,7 @@ describe('Validator', function() {
 
       // then
       expect(valid).to.be.false;
-      expect(object).to.equal(sample);
+      expect(object).to.eql(sample);
 
       expect(normalizedErrors).to.eql([
         { message: 'must be object', params: { type: 'object' } },
@@ -112,6 +112,66 @@ describe('Validator', function() {
       });
     });
 
+
+    it('should retrieve errors, and set data pointer according to the format', function() {
+
+      // given
+      const { customFormatString } = require('../fixtures/rpa-broken-string.js');
+
+      // when
+      const {
+        errors,
+        valid
+      } = validate(customFormatString);
+
+      const missingElementTypeError = errors.find(error => error.message === 'missing elementType value');
+      const hasMissingElementTypeError = !!missingElementTypeError;
+      const dataPointer = missingElementTypeError?.dataPointer;
+      const expectedDataPointerMissingElementType = {
+        key: { line: 189, column: 6, pos: 4983 },
+        keyEnd: { line: 189, column: 19, pos: 4996 },
+        value: { line: 189, column: 21, pos: 4998 },
+        valueEnd: { line: 189, column: 24, pos: 5001 }
+      };
+
+      const invalidElementTypeError = errors.find(error => error.message === 'invalid item for "elementType", should contain namespaced property, example: "bpmn:Task"');
+      const hasInvalidElementTypeError = !!invalidElementTypeError;
+      const dataPointerInvalidElementType = invalidElementTypeError?.dataPointer;
+      const expectedDataPointerInvalidElementType = {
+        key: { line: 126, column: 6, pos: 2850 },
+        keyEnd: { line: 126, column: 13, pos: 2857 },
+        value: { line: 126, column: 15, pos: 2859 },
+        valueEnd: { line: 126, column: 23, pos: 2867 }
+      };
+
+      // then
+      expect(valid).to.be.false;
+      expect(errors).to.exist;
+      expect(hasMissingElementTypeError).to.be.true;
+      expect(hasInvalidElementTypeError).to.be.true;
+      expect(dataPointer).to.eql(expectedDataPointerMissingElementType);
+      expect(dataPointerInvalidElementType).to.eql(expectedDataPointerInvalidElementType);
+    });
+
+
+    it('should return an error if the template is an invalid JSON string', function() {
+
+      // given
+      const sample = '{ "foo": "bar" ';
+
+      // when
+      const {
+        errors,
+        object,
+        valid
+      } = validate(sample);
+
+      // then
+      expect(valid).to.be.false;
+      expect(object).to.be.null;
+      expect(errors).to.exist;
+      expect(errors[0].message).to.eql('Unexpected end of JSON input');
+    });
   });
 
 
@@ -221,7 +281,7 @@ describe('Validator', function() {
 
       // then
       expect(valid).to.be.true;
-      expect(object).to.equal(sample);
+      expect(object).to.eql(sample);
       expect(errors).not.to.exist;
     });
 
@@ -242,7 +302,7 @@ describe('Validator', function() {
 
       // then
       expect(valid).to.be.false;
-      expect(object).to.equal(sample);
+      expect(object).to.eql(sample);
 
       expect(normalizedErrors).to.eql([
         {
@@ -328,6 +388,55 @@ describe('Validator', function() {
         value: { line: 12, column: 16, pos: 275 },
         valueEnd: { line: 12, column: 42, pos: 301 }
       });
+    });
+
+
+    it('should retrieve errors, and set data pointer according to the format', function() {
+
+      // given
+      const { customFormatString } = require('../fixtures/custom-format-with-errors.js');
+
+      // when
+      const {
+        errors,
+        valid
+      } = validateZeebe(customFormatString);
+
+      const missingElementTypeError = errors.find(error => error.message === 'missing elementType value');
+      const hasMissingElementTypeError = !!missingElementTypeError;
+      const dataPointer = missingElementTypeError?.dataPointer;
+      const expectedDataPointer = {
+        key: { line: 18, column: 8, pos: 445 },
+        keyEnd: { line: 18, column: 21, pos: 458 },
+        value: { line: 18, column: 23, pos: 460 },
+        valueEnd: { line: 18, column: 25, pos: 462 }
+      };
+
+      // then
+      expect(valid).to.be.false;
+      expect(errors).to.exist;
+      expect(hasMissingElementTypeError).to.be.true;
+      expect(dataPointer).to.eql(expectedDataPointer);
+    });
+
+
+    it('should return an error if the template is an invalid JSON string', function() {
+
+      // given
+      const sample = '{ "foo": "bar" ';
+
+      // when
+      const {
+        errors,
+        object,
+        valid
+      } = validateZeebe(sample);
+
+      // then
+      expect(valid).to.be.false;
+      expect(object).to.be.null;
+      expect(errors).to.exist;
+      expect(errors[0].message).to.eql('Unexpected end of JSON input');
     });
   });
 

@@ -6,6 +6,8 @@ All notable changes to [element-templates-validator](https://github.com/bpmn-io/
 
 ___Note:__ Yet to be released changes appear here._
 
+* `FEAT`: `validateZeebe`, and `validate` support JSON strings preserving the original format ([#58](https://github.com/bpmn-io/element-templates-validator/issues/58))
+
 ## 2.6.0
 
 * `FEAT`: require `feel` for `bpmn:Expression` properties ([camunda/element-templates-json-schema#176](https://github.com/camunda/element-templates-json-schema/pull/176))
