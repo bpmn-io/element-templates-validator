@@ -41,5 +41,86 @@
         }
       }
     ]
+  },
+  {
+    "$schema": "https://unpkg.com/@camunda/zeebe-element-templates-json-schema/resources/schema.json",
+    "name": "linkedResource missing binding type",
+    "id": "linkedResource-invalid-binding",
+    "version": 2,
+    "appliesTo": [
+      "bpmn:Task"
+    ],
+    "elementType": {
+      "value": "bpmn:ServiceTask"
+    },
+    "properties": [
+      {
+        "type": "String",
+        "value": "RPA",
+        "binding": {
+          "type": "zeebe:linkedResource",
+          "linkName": "persistedLink",
+          "property": "resourceType"
+        }
+      },
+      {
+        "type": "String",
+        "feel": "optional",
+        "binding": {
+          "type": "zeebe:linkedResource",
+          "linkName": "persistedLink",
+          "property": "resourceId"
+        }
+      },
+      {
+        "type": "String",
+        "value": "v1",
+        "binding": {
+          "type": "zeebe:calledElement",
+          "linkName": "persistedLink",
+          "property": "versionTag"
+        }
+      }
+    ]
+  },
+  {
+    "$schema": "https://unpkg.com/@camunda/zeebe-element-templates-json-schema/resources/schema.json",
+    "name": "linkedResource missing linkName for bindingType",
+    "id": "linkedResource-invalid-binding",
+    "version": 3,
+    "appliesTo": [
+      "bpmn:Task"
+    ],
+    "elementType": {
+      "value": "bpmn:ServiceTask"
+    },
+    "properties": [
+      {
+        "type": "String",
+        "value": "RPA",
+        "binding": {
+          "type": "zeebe:linkedResource",
+          "linkName": "persistedLink",
+          "property": "resourceType"
+        }
+      },
+      {
+        "type": "String",
+        "feel": "optional",
+        "binding": {
+          "type": "zeebe:linkedResource",
+          "linkName": "persistedLink",
+          "property": "resourceId"
+        }
+      },
+      {
+        "type": "String",
+        "value": "latest",
+        "binding": {
+          "type": "zeebe:calledElement",
+          "property": "bindingType"
+        }
+      }
+    ]
   }
 ]
