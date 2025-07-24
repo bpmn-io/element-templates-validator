@@ -13,7 +13,7 @@
     "build": "rollup -c --bundleConfigAsCjs",
     "distro": "run-s build test:build",
     "lint": "eslint .",
-    "prepublishOnly": "run-s distro",
+    "prepare": "run-s build",
     "test": "mocha --reporter=spec --recursive test/spec",
     "test:build": "mocha --reporter=spec --recursive test/distro",
     "all": "run-s lint build test distro"
