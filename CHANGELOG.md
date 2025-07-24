@@ -6,6 +6,10 @@ All notable changes to [element-templates-validator](https://github.com/bpmn-io/
 
 ___Note:__ Yet to be released changes appear here._
 
+## 2.8.0
+
+* `FEAT`: `validateZeebe`, and `validate` support JSON strings preserving the original format ([#58](https://github.com/bpmn-io/element-templates-validator/issues/58))
+
 ## 2.7.0
 
 * `FEAT`: support `bindingType` for linking properties ([#60](https://github.com/bpmn-io/element-templates-validator/pull/60))

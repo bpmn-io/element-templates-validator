@@ -2,6 +2,8 @@ import { expect } from 'chai';
 
 import { map, keys } from 'min-dash';
 
+import { readFileSync } from 'node:fs';
+
 import {
   getSchemaPackage,
   getSchemaVersion,
@@ -59,7 +61,7 @@ describe('Validator', function() {
 
       // then
       expect(valid).to.be.true;
-      expect(object).to.equal(sample);
+      expect(object).to.eql(sample);
       expect(errors).not.to.exist;
     });
 
@@ -80,7 +82,7 @@ describe('Validator', function() {
 
       // then
       expect(valid).to.be.false;
-      expect(object).to.equal(sample);
+      expect(object).to.eql(sample);
 
       expect(normalizedErrors).to.eql([
         { message: 'must be object', params: { type: 'object' } },
@@ -112,6 +114,86 @@ describe('Validator', function() {
       });
     });
 
+
+    describe('string input', function() {
+
+      it('should accept valid JSON string', function() {
+
+        // given
+        const sample = readFile('test/fixtures/unformatted.json');
+
+        // when
+        const {
+          errors,
+          object,
+          valid
+        } = validate(sample);
+
+        // then
+        expect(valid).to.be.true;
+        expect(object).to.exist;
+        expect(errors).to.not.exist;
+      });
+
+
+      it('should retrieve errors, and set data pointer according to the format', function() {
+
+        // given
+        const sample = readFile('test/fixtures/unformatted-with-errors.json');
+
+        // when
+        const {
+          errors,
+          valid
+        } = validate(sample);
+
+        // then
+        expect(valid).to.be.false;
+        expect(errors).to.exist;
+        expect(errors[0].dataPointer).to.eql({
+          'key': {
+            'line': 12,
+            'column': 8,
+            'pos': 375
+          },
+          'keyEnd': {
+            'line': 12,
+            'column': 21,
+            'pos': 388
+          },
+          'value': {
+            'line': 12,
+            'column': 23,
+            'pos': 390
+          },
+          'valueEnd': {
+            'line': 12,
+            'column': 25,
+            'pos': 392
+          }
+        });
+      });
+
+
+      it('should return an error for invalid JSON string', function() {
+
+        // given
+        const sample = '{ "foo": "bar" ';
+
+        // when
+        const {
+          errors,
+          object,
+          valid
+        } = validate(sample);
+
+        // then
+        expect(valid).to.be.false;
+        expect(object).to.be.null;
+        expect(errors).to.exist;
+        expect(errors[0].message).to.eql('Unexpected end of JSON input');
+      });
+    });
   });
 
 
@@ -221,7 +303,7 @@ describe('Validator', function() {
 
       // then
       expect(valid).to.be.true;
-      expect(object).to.equal(sample);
+      expect(object).to.eql(sample);
       expect(errors).not.to.exist;
     });
 
@@ -242,7 +324,7 @@ describe('Validator', function() {
 
       // then
       expect(valid).to.be.false;
-      expect(object).to.equal(sample);
+      expect(object).to.eql(sample);
 
       expect(normalizedErrors).to.eql([
         {
@@ -327,6 +409,87 @@ describe('Validator', function() {
         keyEnd: { line: 12, column: 14, pos: 273 },
         value: { line: 12, column: 16, pos: 275 },
         valueEnd: { line: 12, column: 42, pos: 301 }
+      });
+    });
+
+
+    describe('string input', function() {
+
+      it('should accept valid JSON string', function() {
+
+        // given
+        const sample = readFile('test/fixtures/unformatted.json');
+
+        // when
+        const {
+          errors,
+          object,
+          valid
+        } = validateZeebe(sample);
+
+        // then
+        expect(valid).to.be.true;
+        expect(object).to.exist;
+        expect(errors).to.not.exist;
+      });
+
+
+      it('should retrieve errors, and set data pointer according to the format', function() {
+
+        // given
+        const sample = readFile('test/fixtures/unformatted-with-errors.json');
+
+        // when
+        const {
+          errors,
+          valid
+        } = validateZeebe(sample);
+
+        // then
+        expect(valid).to.be.false;
+        expect(errors).to.exist;
+        expect(errors[0].dataPointer).to.eql({
+          'key': {
+            'line': 12,
+            'column': 8,
+            'pos': 375
+          },
+          'keyEnd': {
+            'line': 12,
+            'column': 21,
+            'pos': 388
+          },
+          'value': {
+            'line': 12,
+            'column': 23,
+            'pos': 390
+          },
+          'valueEnd': {
+            'line': 12,
+            'column': 25,
+            'pos': 392
+          }
+        });
+      });
+
+
+      it('should return an error for invalid JSON string', function() {
+
+        // given
+        const sample = '{ "foo": "bar" ';
+
+        // when
+        const {
+          errors,
+          object,
+          valid
+        } = validateZeebe(sample);
+
+        // then
+        expect(valid).to.be.false;
+        expect(object).to.be.null;
+        expect(errors).to.exist;
+        expect(errors[0].message).to.eql('Unexpected end of JSON input');
       });
     });
   });
@@ -763,4 +926,8 @@ function normalizeErrors(errors) {
 
     return normalizedError;
   });
+}
+
+function readFile(path) {
+  return readFileSync(path, 'utf-8');
 }
