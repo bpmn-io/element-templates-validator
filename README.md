@@ -27,7 +27,6 @@ const {
 if (!valid) {
   console.error('Invalid JSON detected:', errors);
 }
-
 ```
 
 This will print detailed information about errors inside the sample:
@@ -59,10 +58,26 @@ This will print detailed information about errors inside the sample:
 ]
 ```
 
-If you pass a JSON string to the `validateZeebe` and `validate` functions, the dataPointers of the errors will reflect the correct position in the original string.
+You can also pass a stringified template to ensure that the `dataPointers` of the errors reflect the correct position in the original string.
 
-If a parsed JSON object is passed, the `dataPointers` may not match the original string.
-In this case, ensure to format your JSON before validating it, using the canonical format (e.g., with `JSON.stringify(sample, null, 2)`).
+```js
+import { validate } from '@bpmn-io/element-templates-validator';
+
+import { readFileSync } from 'node:fs';
+
+const sample = readFileSync('./test/fixtures/rpa-broken.json', 'utf-8');
+
+const {
+  valid,
+  errors
+} = validate(sample);
+
+if (!valid) {
+  console.error('Invalid JSON detected:', errors);
+}
+```
+
+If a parsed JSON object is passed, the `dataPointers` will assume that the source template is formatted with `JSON.stringify(template, null, 2)`.
 
 It's also possible to validate multiple objects at once. In this case, the list of templates supports only objects, not strings.
 
