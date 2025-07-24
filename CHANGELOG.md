@@ -6,6 +6,11 @@ All notable changes to [element-templates-validator](https://github.com/bpmn-io/
 
 ___Note:__ Yet to be released changes appear here._
 
+## 2.7.0
+
+* `FEAT`: support `bindingType` for linking properties ([#60](https://github.com/bpmn-io/element-templates-validator/pull/60))
+* `DEPS`: update to `@camunda/zeebe-element-templates-json-schema@0.26.0`
+
 ## 2.6.0
 
 * `FEAT`: require `feel` for `bpmn:Expression` properties ([camunda/element-templates-json-schema#176](https://github.com/camunda/element-templates-json-schema/pull/176))
