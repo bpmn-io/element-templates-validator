@@ -513,6 +513,7 @@ describe('Validator', function() {
       expect(results.map(r => r.object)).to.eql(samples);
     });
 
+
     it('should validate called element templates', function() {
 
       // given
@@ -532,6 +533,7 @@ describe('Validator', function() {
 
       expect(results.map(r => r.object)).to.eql(samples);
     });
+
 
     it('should validate called element templates with errors', function() {
 
