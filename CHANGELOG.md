@@ -6,6 +6,11 @@ All notable changes to [element-templates-validator](https://github.com/bpmn-io/
 
 ___Note:__ Yet to be released changes appear here._
 
+## 2.9.0
+
+* `FEAT`: support `zeebe:assignmentDefinition` binding ([#63](https://github.com/bpmn-io/element-templates-validator/pull/63))
+* `DEPS`: update to `@camunda/zeebe-element-templates-json-schema@0.27.0`
+
 ## 2.8.0
 
 * `FEAT`: `validateZeebe`, and `validate` support JSON strings preserving the original format ([#58](https://github.com/bpmn-io/element-templates-validator/issues/58))
