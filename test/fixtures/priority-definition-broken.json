@@ -1,0 +1,67 @@
+[
+  {
+    "$schema": "https://unpkg.com/@camunda/zeebe-element-templates-json-schema/resources/schema.json",
+    "name": "Priority Definition",
+    "id": "priority-definition-invalid-property",
+    "description": "A template to define task priority based on a variable.",
+    "version": 1,
+    "appliesTo": [
+      "bpmn:Task"
+    ],
+    "elementType": {
+      "value": "bpmn:UserTask"
+    },
+    "properties": [
+      {
+        "type": "Hidden",
+        "binding": {
+          "type": "zeebe:userTask"
+        }
+      },
+      {
+        "label": "Prio",
+        "value": "100",
+        "description": "Prio for task",
+        "constraints": {
+          "notEmpty": true
+        },
+        "type": "String",
+        "binding": {
+          "type": "zeebe:priorityDefinition",
+          "property": "youShallNotPass"
+        }
+      }
+    ]
+  },
+  {
+    "$schema": "https://unpkg.com/@camunda/zeebe-element-templates-json-schema/resources/schema.json",
+    "name": "Priority Definition",
+    "id": "priority-definition-invalid-values",
+    "description": "A template to define task priority based on a variable.",
+    "version": 1,
+    "appliesTo": [
+      "bpmn:Task"
+    ],
+    "elementType": {
+      "value": "bpmn:UserTask"
+    },
+    "properties": [
+      {
+        "type": "Hidden",
+        "binding": {
+          "type": "zeebe:userTask"
+        }
+      },
+      {
+        "label": "Prio",
+        "value": -1,
+        "description": "Prio for task",
+        "type": "Number",
+        "binding": {
+          "type": "zeebe:priorityDefinition",
+          "property": "priority"
+        }
+      }
+    ]
+  }
+]
