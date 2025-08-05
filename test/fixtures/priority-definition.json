@@ -1,0 +1,49 @@
+[
+  {
+    "$schema": "https://unpkg.com/@camunda/zeebe-element-templates-json-schema/resources/schema.json",
+    "name": "Priority Definition",
+    "id": "priority-definition",
+    "description": "A template to define user task priority based on a variable",
+    "appliesTo": [
+      "bpmn:Task"
+    ],
+    "elementType": {
+      "value": "bpmn:UserTask"
+    },
+    "properties": [
+      {
+        "type": "Hidden",
+        "binding": {
+          "type": "zeebe:userTask"
+        }
+      },
+      {
+        "label": "Prio",
+        "value": "100",
+        "description": "Prio for task",
+        "constraints": {
+          "notEmpty": true
+        },
+        "type": "Dropdown",
+        "binding": {
+          "type": "zeebe:priorityDefinition",
+          "property": "priority"
+        },
+        "choices": [
+          {
+            "name": "High",
+            "value": "100"
+          },
+          {
+            "name": "Medium",
+            "value": "50"
+          },
+          {
+            "name": "Low",
+            "value": "0"
+          }
+        ]
+      }
+    ]
+  }
+]

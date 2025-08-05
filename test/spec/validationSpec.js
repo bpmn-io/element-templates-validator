@@ -334,7 +334,7 @@ describe('Validator', function() {
           message: 'must provide choices=[] with "Dropdown" type'
         },
         {
-          message: 'invalid property.binding type "zeebe:taskDefinition:foo"; must be any of { property, zeebe:taskDefinition:type, zeebe:input, zeebe:output, zeebe:property, zeebe:taskHeader, bpmn:Message#property, bpmn:Message#zeebe:subscription#property, zeebe:taskDefinition, zeebe:calledElement, zeebe:linkedResource, zeebe:userTask, zeebe:formDefinition, zeebe:calledDecision, zeebe:script, zeebe:assignmentDefinition }'
+          message: 'invalid property.binding type "zeebe:taskDefinition:foo"; must be any of { property, zeebe:taskDefinition:type, zeebe:input, zeebe:output, zeebe:property, zeebe:taskHeader, bpmn:Message#property, bpmn:Message#zeebe:subscription#property, zeebe:taskDefinition, zeebe:calledElement, zeebe:linkedResource, zeebe:userTask, zeebe:formDefinition, zeebe:calledDecision, zeebe:script, zeebe:assignmentDefinition, zeebe:priorityDefinition }'
         },
         {
           message: 'property.binding "zeebe:taskHeader" requires key'
@@ -879,6 +879,45 @@ describe('Validator', function() {
 
       // given
       const samples = require('../fixtures/assignment-definition-broken.json');
+
+      // when
+      const {
+        valid,
+        results
+      } = validateAllZeebe(samples);
+
+      // then
+      expect(valid).to.be.false;
+      expect(results.every(r => !r.valid)).to.be.true;
+      expect(results.map(r => r.object)).to.eql(samples);
+    });
+
+
+    it('should validate priorityDefinition templates', function() {
+
+      // given
+      const samples = require('../fixtures/priority-definition.json');
+
+      // when
+      const {
+        valid,
+        results
+      } = validateAllZeebe(samples);
+
+      // then
+      expect(valid).to.be.true;
+      expect(results.length).to.eql(samples.length);
+
+      expect(results.every(r => r.valid)).to.be.true;
+
+      expect(results.map(r => r.object)).to.eql(samples);
+    });
+
+
+    it('should validate priorityDefinition templates with errors', function() {
+
+      // given
+      const samples = require('../fixtures/priority-definition-broken.json');
 
       // when
       const {
