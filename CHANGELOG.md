@@ -4,7 +4,8 @@ All notable changes to [element-templates-validator](https://github.com/bpmn-io/
 
 ## Unreleased
 
-___Note:__ Yet to be released changes appear here._
+* `FEAT`: support `zeebe:priorityDefinition` binding ([#64](https://github.com/bpmn-io/element-templates-validator/pull/64))
+* `DEPS`: update to `@camunda/zeebe-element-templates-json-schema@0.28.0`
 
 ## 2.9.0
 
