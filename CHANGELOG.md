@@ -6,6 +6,8 @@ All notable changes to [element-templates-validator](https://github.com/bpmn-io/
 
 ___Note:__ Yet to be released changes appear here._
 
+* `FEAT`: support `zeebe:taskSchedule` binding
+
 ## 2.11.0
 
 * `FEAT`: support `zeebe:adHoc` binding ([#67](https://github.com/bpmn-io/element-templates-validator/pull/67))
