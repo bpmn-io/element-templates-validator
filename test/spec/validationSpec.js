@@ -970,6 +970,44 @@ describe('Validator', function() {
       expect(results.map(r => r.object)).to.eql(samples);
     });
 
+    it('should validate taskSchedule templates', function() {
+
+      // given
+      const samples = require('../fixtures/task-schedule.json');
+
+      // when
+      const {
+        valid,
+        results
+      } = validateAllZeebe(samples);
+
+      // then
+      expect(valid).to.be.true;
+      expect(results.length).to.eql(samples.length);
+
+      expect(results.every(r => r.valid)).to.be.true;
+
+      expect(results.map(r => r.object)).to.eql(samples);
+    });
+
+
+    it('should validate taskSchedule templates with errors', function() {
+
+      // given
+      const samples = require('../fixtures/task-schedule-broken.json');
+
+      // when
+      const {
+        valid,
+        results
+      } = validateAllZeebe(samples);
+
+      // then
+      expect(valid).to.be.false;
+      expect(results.every(r => !r.valid)).to.be.true;
+      expect(results.map(r => r.object)).to.eql(samples);
+    });
+
 
     describe('property', function() {
 
