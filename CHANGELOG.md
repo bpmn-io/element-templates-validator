@@ -6,6 +6,8 @@ All notable changes to [element-templates-validator](https://github.com/bpmn-io/
 
 ___Note:__ Yet to be released changes appear here._
 
+* `FEAT`: support `zeebe:taskSchedule` binding
+
 ## 2.10.0
 
 * `FEAT`: support `zeebe:priorityDefinition` binding ([#64](https://github.com/bpmn-io/element-templates-validator/pull/64))
