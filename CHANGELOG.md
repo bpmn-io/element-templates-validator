@@ -6,6 +6,11 @@ All notable changes to [element-templates-validator](https://github.com/bpmn-io/
 
 ___Note:__ Yet to be released changes appear here._
 
+## 2.11.0
+
+* `FEAT`: support `zeebe:adHoc` binding ([#67](https://github.com/bpmn-io/element-templates-validator/pull/67))
+* `DEPS`: update to `@camunda/zeebe-element-templates-json-schema@0.29.0`
+
 ## 2.10.0
 
 * `FEAT`: support `zeebe:priorityDefinition` binding ([#64](https://github.com/bpmn-io/element-templates-validator/pull/64))
