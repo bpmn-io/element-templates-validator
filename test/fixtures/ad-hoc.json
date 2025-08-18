@@ -1,0 +1,53 @@
+[
+  {
+    "$schema": "https://unpkg.com/@camunda/zeebe-element-templates-json-schema/resources/schema.json",
+    "name": "AdHoc Template",
+    "id": "io.camunda.examples.AdHoc.Valid.v1",
+    "version": 1,
+    "appliesTo": ["bpmn:AdHocSubProcess"],
+    "elementType": {"value": "bpmn:AdHocSubProcess"},
+    "properties": [
+      {
+        "type": "Hidden",
+        "binding": {"type": "zeebe:taskDefinition", "property": "type"},
+        "value": "io.camunda.agenticai:aiagent-job-worker:1"
+      },
+      {
+        "type": "Hidden",
+        "binding": {"type": "zeebe:adHoc", "property": "outputCollection"},
+        "value": "toolCallResults"
+      },
+      {
+        "type": "Hidden",
+        "binding": {"type": "zeebe:adHoc", "property": "outputElement"},
+        "value": "={ id: toolCall._meta.id, name: toolCall._meta.name, content: toolCallResult }"
+      }
+    ]
+  },
+  {
+    "$schema": "https://unpkg.com/@camunda/zeebe-element-templates-json-schema/resources/schema.json",
+    "name": "AdHoc Template",
+    "id": "io.camunda.examples.AdHoc.Valid.v2",
+    "version": 1,
+    "appliesTo": ["bpmn:AdHocSubProcess"],
+    "elementType": {"value": "bpmn:AdHocSubProcess"},
+    "properties": [
+      {
+        "type": "Hidden",
+        "binding": {"type": "zeebe:taskDefinition", "property": "type"},
+        "value": "io.camunda.agenticai:aiagent-job-worker:1"
+      },
+      {
+        "type": "String",
+        "binding": {"type": "zeebe:adHoc", "property": "outputCollection"},
+        "value": "toolCallResults"
+      },
+      {
+        "type": "String",
+        "feel": "required",
+        "binding": {"type": "zeebe:adHoc", "property": "outputElement"},
+        "value": "={ id: toolCall._meta.id, name: toolCall._meta.name, content: toolCallResult }"
+      }
+    ]
+  }
+]
