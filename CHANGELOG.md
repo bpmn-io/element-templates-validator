@@ -6,7 +6,10 @@ All notable changes to [element-templates-validator](https://github.com/bpmn-io/
 
 ___Note:__ Yet to be released changes appear here._
 
-* `FEAT`: support `zeebe:taskSchedule` binding
+# 2.12.0
+
+* `FEAT`: support `zeebe:taskSchedule` binding ([#66](https://github.com/bpmn-io/element-templates-validator/pull/66))
+* `FEAT`: disallow `bpmn:cancelRemainingInstances`, `bpmn:completionCondition` and `zeebe:activeElementsCollection` when `zeebe:taskDefinition` present ([camunda/element-templates-json-schema#194](https://github.com/camunda/element-templates-json-schema/pull/194))
 
 ## 2.11.0
 
