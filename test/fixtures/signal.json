@@ -1,0 +1,108 @@
+[
+  {
+    "name": "Signal Start Event Template",
+    "id": "signalStartEventTemplate",
+    "appliesTo": [
+      "bpmn:StartEvent"
+    ],
+    "elementType": {
+      "value": "bpmn:StartEvent",
+      "eventDefinition": "bpmn:SignalEventDefinition"
+    },
+    "properties": [
+      {
+        "label": "Signal Name",
+        "type": "String",
+        "binding": {
+          "type": "bpmn:Signal#property",
+          "name": "name"
+        }
+      }
+    ]
+  },
+  {
+    "name": "Signal Intermediate Catch Event Template",
+    "id": "signalIntermediateCatchEventTemplate",
+    "appliesTo": [
+      "bpmn:IntermediateCatchEvent"
+    ],
+    "elementType": {
+      "value": "bpmn:IntermediateCatchEvent",
+      "eventDefinition": "bpmn:SignalEventDefinition"
+    },
+    "properties": [
+      {
+        "type": "Hidden",
+        "value": "MY_SIGNAL",
+        "binding": {
+          "type": "bpmn:Signal#property",
+          "name": "name"
+        }
+      }
+    ]
+  },
+  {
+    "name": "Signal Intermediate Throw Event Template",
+    "id": "signalIntermediateThrowEventTemplate",
+    "appliesTo": [
+      "bpmn:Event"
+    ],
+    "elementType": {
+      "value": "bpmn:IntermediateThrowEvent",
+      "eventDefinition": "bpmn:SignalEventDefinition"
+    },
+    "properties": [
+      {
+        "label": "Signal Name",
+        "value": " MY_SIGNAL",
+        "type": "Hidden",
+        "binding": {
+          "type": "bpmn:Signal#property",
+          "name": "name"
+        }
+      }
+    ]
+  },
+  {
+    "name": "Signal Boundary Event Template",
+    "id": "signalBoundaryEventTemplate",
+    "appliesTo": [
+      "bpmn:BoundaryEvent"
+    ],
+    "elementType": {
+      "value": "bpmn:BoundaryEvent",
+      "eventDefinition": "bpmn:SignalEventDefinition"
+    },
+    "properties": [
+      {
+        "label": "Signal Name",
+        "type": "Text",
+        "binding": {
+          "type": "bpmn:Signal#property",
+          "name": "name"
+        }
+      }
+    ]
+  },
+  {
+    "name": "Signal End Event Template",
+    "id": "signalEndEventTemplate",
+    "appliesTo": [
+      "bpmn:EndEvent"
+    ],
+    "elementType": {
+      "value": "bpmn:EndEvent",
+      "eventDefinition": "bpmn:SignalEventDefinition"
+    },
+    "properties": [
+      {
+        "label": "Signal Name",
+        "type": "String",
+        "binding": {
+          "type": "bpmn:Signal#property",
+          "name": "name"
+        }
+      }
+    ]
+  }
+]

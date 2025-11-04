@@ -6,6 +6,12 @@ All notable changes to [element-templates-validator](https://github.com/bpmn-io/
 
 ___Note:__ Yet to be released changes appear here._
 
+# 2.14.0
+
+* `FEAT`: support signal events ([#72](https://github.com/bpmn-io/element-templates-validator/pull/72))
+* `FEAT`: overhaul and add missing properties descriptions
+* `DEPS`: update to `@camunda/zeebe-element-templates-json-schema@0.33.0`
+
 # 2.13.0
 
 * `FEAT`: support `activeElementsCollection` property on `zeebe:adHoc` ([camunda/element-templates-json-schema#198](https://github.com/camunda/element-templates-json-schema/pull/198))
