@@ -1,0 +1,101 @@
+[
+  {
+    "name": "Signal Event Template - missing element type",
+    "id": "signalEventTemplateMissingElementType",
+    "appliesTo": [
+      "bpmn:IntermediateCatchEvent"
+    ],
+    "properties": [
+      {
+        "label": "Signal Name",
+        "type": "String",
+        "binding": {
+          "type": "bpmn:Signal#property",
+          "name": "name"
+        }
+      }
+    ]
+  },
+  {
+    "name": "Signal Event Template - missing event definition",
+    "id": "signalEventTemplateMissingEventDefinition",
+    "appliesTo": [
+      "bpmn:IntermediateCatchEvent"
+    ],
+    "elementType": {
+      "value": "bpmn:IntermediateCatchEvent"
+    },
+    "properties": [
+      {
+        "label": "Signal Name",
+        "type": "String",
+        "binding": {
+          "type": "bpmn:Signal#property",
+          "name": "name"
+        }
+      }
+    ]
+  },
+  {
+    "name": "Signal Event Template - incorrect element type",
+    "id": "signalEventTemplateIncorrectElementType",
+    "appliesTo": [
+      "bpmn:Task"
+    ],
+    "elementType": {
+      "value": "bpmn:ServiceTask"
+    },
+    "properties": [
+      {
+        "label": "Signal Name",
+        "type": "String",
+        "binding": {
+          "type": "bpmn:Signal#property",
+          "name": "name"
+        }
+      }
+    ]
+  },
+  {
+    "name": "Signal Event Template - wrong event definition",
+    "id": "signalEventTemplateWrongEventDefinition",
+    "appliesTo": [
+      "bpmn:IntermediateCatchEvent"
+    ],
+    "elementType": {
+      "value": "bpmn:IntermediateCatchEvent",
+      "eventDefinition": "bpmn:MessageEventDefinition"
+    },
+    "properties": [
+      {
+        "label": "Signal Name",
+        "type": "String",
+        "binding": {
+          "type": "bpmn:Signal#property",
+          "name": "name"
+        }
+      }
+    ]
+  },
+  {
+    "name": "Signal Event Template - invalid element type for signal",
+    "id": "signalEventTemplateInvalidElementType",
+    "appliesTo": [
+      "bpmn:Task"
+    ],
+    "elementType": {
+      "value": "bpmn:Task",
+      "eventDefinition": "bpmn:SignalEventDefinition"
+    },
+    "properties": [
+      {
+        "label": "Signal Name",
+        "type": "String",
+        "binding": {
+          "type": "bpmn:Signal#property",
+          "name": "name"
+        }
+      }
+    ]
+  }
+]
