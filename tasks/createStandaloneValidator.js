@@ -1,10 +1,10 @@
-import standaloneCode from 'ajv/dist/standalone';
+import standaloneCode from 'ajv/dist/standalone/index.js';
 import { writeFileSync as writeFile, mkdirSync as mkdir } from 'fs';
 import { resolve, dirname } from 'path';
 
-import validate, { ajv } from '../lib/validate';
+import validate, { ajv } from '../lib/validate.js';
 
-import validateZeebe, { ajv as zeebeAjv } from '../lib/validateZeebe';
+import validateZeebe, { ajv as zeebeAjv } from '../lib/validateZeebe.js';
 
 
 export function createStandaloneValidator() {
