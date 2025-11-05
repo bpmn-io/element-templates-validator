@@ -10,7 +10,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "rollup -c --bundleConfigAsCjs",
+    "build": "rollup -c",
     "distro": "run-s build test:build",
     "lint": "eslint .",
     "prepare": "run-s build",
