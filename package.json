@@ -46,11 +46,11 @@
     "@rollup/plugin-node-resolve": "^16.0.0",
     "ajv": "^8.17.1",
     "ajv-errors": "^3.0.0",
-    "chai": "^4.5.0",
+    "chai": "^6.0.0",
     "eslint": "^9.0.0",
     "eslint-plugin-bpmn-io": "^2.0.2",
     "esm": "^3.2.25",
-    "mocha": "^10.8.2",
+    "mocha": "^11.0.0",
     "npm-run-all2": "^8.0.0",
     "rollup": "^4.28.0"
   },
