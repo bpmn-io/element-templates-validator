@@ -1,0 +1,101 @@
+[
+  {
+    "name": "Timer Event Template - missing element type",
+    "id": "timerEventTemplateMissingElementType",
+    "appliesTo": [
+      "bpmn:IntermediateCatchEvent"
+    ],
+    "properties": [
+      {
+        "label": "Duration",
+        "type": "String",
+        "binding": {
+          "type": "bpmn:TimerEventDefinition#property",
+          "name": "timeDuration"
+        }
+      }
+    ]
+  },
+  {
+    "name": "Timer Event Template - missing event definition",
+    "id": "timerEventTemplateMissingEventDefinition",
+    "appliesTo": [
+      "bpmn:IntermediateCatchEvent"
+    ],
+    "elementType": {
+      "value": "bpmn:IntermediateCatchEvent"
+    },
+    "properties": [
+      {
+        "label": "Duration",
+        "type": "String",
+        "binding": {
+          "type": "bpmn:TimerEventDefinition#property",
+          "name": "timeDuration"
+        }
+      }
+    ]
+  },
+  {
+    "name": "Timer Event Template - incorrect element type",
+    "id": "timerEventTemplateIncorrectElementType",
+    "appliesTo": [
+      "bpmn:Task"
+    ],
+    "elementType": {
+      "value": "bpmn:ServiceTask"
+    },
+    "properties": [
+      {
+        "label": "Duration",
+        "type": "String",
+        "binding": {
+          "type": "bpmn:TimerEventDefinition#property",
+          "name": "timeDuration"
+        }
+      }
+    ]
+  },
+  {
+    "name": "Timer Event Template - wrong event definition",
+    "id": "timerEventTemplateWrongEventDefinition",
+    "appliesTo": [
+      "bpmn:IntermediateCatchEvent"
+    ],
+    "elementType": {
+      "value": "bpmn:IntermediateCatchEvent",
+      "eventDefinition": "bpmn:MessageEventDefinition"
+    },
+    "properties": [
+      {
+        "label": "Duration",
+        "type": "String",
+        "binding": {
+          "type": "bpmn:TimerEventDefinition#property",
+          "name": "timeDuration"
+        }
+      }
+    ]
+  },
+  {
+    "name": "Timer Event Template - invalid element type for timer",
+    "id": "timerEventTemplateInvalidElementType",
+    "appliesTo": [
+      "bpmn:Task"
+    ],
+    "elementType": {
+      "value": "bpmn:Task",
+      "eventDefinition": "bpmn:TimerEventDefinition"
+    },
+    "properties": [
+      {
+        "label": "Duration",
+        "type": "String",
+        "binding": {
+          "type": "bpmn:TimerEventDefinition#property",
+          "name": "timeDuration"
+        }
+      }
+    ]
+  }
+]
