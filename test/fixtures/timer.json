@@ -1,0 +1,110 @@
+[
+  {
+    "name": "Timer Start Event Template - timeCycle",
+    "id": "timerStartEventTemplateCycle",
+    "appliesTo": [
+      "bpmn:StartEvent"
+    ],
+    "elementType": {
+      "value": "bpmn:StartEvent",
+      "eventDefinition": "bpmn:TimerEventDefinition"
+    },
+    "properties": [
+      {
+        "label": "Cron Expression",
+        "type": "String",
+        "value": "0 0 9-17 * * MON-FRI",
+        "binding": {
+          "type": "bpmn:TimerEventDefinition#property",
+          "name": "timeCycle"
+        }
+      }
+    ]
+  },
+  {
+    "name": "Timer Start Event Template - timeDate",
+    "id": "timerStartEventTemplateDate",
+    "appliesTo": [
+      "bpmn:StartEvent"
+    ],
+    "elementType": {
+      "value": "bpmn:StartEvent",
+      "eventDefinition": "bpmn:TimerEventDefinition"
+    },
+    "properties": [
+      {
+        "type": "Hidden",
+        "value": "2024-12-24T18:00:00Z",
+        "binding": {
+          "type": "bpmn:TimerEventDefinition#property",
+          "name": "timeDate"
+        }
+      }
+    ]
+  },
+  {
+    "name": "Timer Intermediate Catch Event Template - timeDuration",
+    "id": "timerIntermediateCatchEventTemplateDuration",
+    "appliesTo": [
+      "bpmn:IntermediateCatchEvent"
+    ],
+    "elementType": {
+      "value": "bpmn:IntermediateCatchEvent",
+      "eventDefinition": "bpmn:TimerEventDefinition"
+    },
+    "properties": [
+      {
+        "label": "Duration",
+        "type": "String",
+        "value": "PT1H",
+        "binding": {
+          "type": "bpmn:TimerEventDefinition#property",
+          "name": "timeDuration"
+        }
+      }
+    ]
+  },
+  {
+    "name": "Timer Boundary Event Template - timeCycle",
+    "id": "timerBoundaryEventTemplateCycle",
+    "appliesTo": [
+      "bpmn:BoundaryEvent"
+    ],
+    "elementType": {
+      "value": "bpmn:BoundaryEvent",
+      "eventDefinition": "bpmn:TimerEventDefinition"
+    },
+    "properties": [
+      {
+        "label": "Cycle",
+        "type": "String",
+        "value": "R3/PT10M",
+        "binding": {
+          "type": "bpmn:TimerEventDefinition#property",
+          "name": "timeCycle"
+        }
+      }
+    ]
+  },
+  {
+    "name": "Timer Boundary Event Template - timeDuration",
+    "id": "timerBoundaryEventTemplateDuration",
+    "appliesTo": [
+      "bpmn:BoundaryEvent"
+    ],
+    "elementType": {
+      "value": "bpmn:BoundaryEvent",
+      "eventDefinition": "bpmn:TimerEventDefinition"
+    },
+    "properties": [
+      {
+        "label": "Duration",
+        "type": "Text",
+        "binding": {
+          "type": "bpmn:TimerEventDefinition#property",
+          "name": "timeDuration"
+        }
+      }
+    ]
+  }
+]
