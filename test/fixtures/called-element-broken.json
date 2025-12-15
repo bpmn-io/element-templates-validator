@@ -135,5 +135,43 @@
         }
       }
     ]
+  },
+  {
+    "$schema": "https://unpkg.com/@camunda/zeebe-element-templates-json-schema/resources/schema.json",
+    "id": "io.camunda.examples.calledElement",
+    "name": "Called Element Template",
+    "version": 4,
+    "appliesTo": [
+      "bpmn:Activity",
+      "bpmn:Task"
+    ],
+    "elementType": {
+      "value": "bpmn:CallActivity"
+    },
+    "properties": [
+      {
+        "type": "String",
+        "binding": {
+          "type": "zeebe:calledElement",
+          "property": "processId"
+        }
+      },
+      {
+        "type": "String",
+        "value": "true",
+        "binding": {
+          "type": "zeebe:calledElement",
+          "property": "propagateAllChildVariables"
+        }
+      },
+      {
+        "type": "Hidden",
+        "value": "someText",
+        "binding": {
+          "type": "zeebe:calledElement",
+          "property": "propagateAllParentVariables"
+        }
+      }
+    ]
   }
 ]
