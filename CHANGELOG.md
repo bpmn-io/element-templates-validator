@@ -6,6 +6,11 @@ All notable changes to [element-templates-validator](https://github.com/bpmn-io/
 
 ___Note:__ Yet to be released changes appear here._
 
+# 2.16.0
+
+* `FEAT`: support timer event templates ([#74](https://github.com/bpmn-io/element-templates-validator/pull/74))
+* `DEPS`: update to `@camunda/zeebe-element-templates-json-schema@0.35.0`
+
 # 2.15.0
 
 * `FEAT`: support `zeebe:calledElement` variables propagation properties ([camunda/element-templates-json-schema#210](https://github.com/camunda/element-templates-json-schema/pull/210))
