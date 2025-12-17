@@ -58,6 +58,6 @@
     "@camunda/element-templates-json-schema": "^0.20.0",
     "@camunda/zeebe-element-templates-json-schema": "^0.35.0",
     "json-source-map": "^0.6.1",
-    "min-dash": "^4.1.1"
+    "min-dash": "^5.0.0"
   }
 }
