@@ -6,6 +6,11 @@ All notable changes to [element-templates-validator](https://github.com/bpmn-io/
 
 ___Note:__ Yet to be released changes appear here._
 
+# 2.17.0
+
+* `FEAT`: support conditional event templates ([#76](https://github.com/bpmn-io/element-templates-validator/pull/76))
+* `DEPS`: update to `@camunda/zeebe-element-templates-json-schema@0.36.0`
+
 # 2.16.0
 
 * `FEAT`: support timer event templates ([#74](https://github.com/bpmn-io/element-templates-validator/pull/74))
