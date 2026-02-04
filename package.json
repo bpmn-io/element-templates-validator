@@ -43,7 +43,7 @@
     "@rollup/plugin-alias": "^6.0.0",
     "@rollup/plugin-commonjs": "^29.0.0",
     "@rollup/plugin-json": "^6.1.0",
-    "@rollup/plugin-node-resolve": "^16.0.0",
+    "@rollup/plugin-node-resolve": "^16.0.3",
     "ajv": "^8.17.1",
     "ajv-errors": "^3.0.0",
     "chai": "^6.0.0",
@@ -52,7 +52,7 @@
     "esm": "^3.2.25",
     "mocha": "^11.0.0",
     "npm-run-all2": "^8.0.0",
-    "rollup": "^4.28.0"
+    "rollup": "^4.57.1"
   },
   "dependencies": {
     "@camunda/element-templates-json-schema": "^0.20.0",
