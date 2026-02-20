@@ -56,13 +56,15 @@ describe('Validator', function() {
       const {
         errors,
         object,
-        valid
+        valid,
+        warnings
       } = validate(sample);
 
       // then
       expect(valid).to.be.true;
       expect(object).to.eql(sample);
       expect(errors).not.to.exist;
+      expect(warnings).not.to.exist;
     });
 
 
@@ -490,6 +492,62 @@ describe('Validator', function() {
         expect(object).to.be.null;
         expect(errors).to.exist;
         expect(errors[0].message).to.eql('Unexpected end of JSON input');
+      });
+    });
+
+
+    describe('warnings', function() {
+
+      it('should return warnings for deprecated bindings', function() {
+
+        // given
+        const sample = readFile('test/fixtures/deprecated-binding.json');
+
+        // when
+        const {
+          valid,
+          errors,
+          warnings
+        } = validateZeebe(sample);
+
+        // then
+        expect(valid).to.be.true;
+        expect(errors).not.to.exist;
+        expect(warnings).to.be.an('array').with.length(1);
+
+        expect(warnings[0]).to.include({
+          keyword: 'deprecated',
+          instancePath: '/properties/0/binding',
+          message: 'Value is deprecated'
+        });
+
+        expect(warnings[0].dataPointer).to.deep.include({
+          key: { line: 12, column: 6, pos: 395 },
+          value: { line: 12, column: 17, pos: 406 }
+        });
+      });
+
+
+      it('should return both errors and warnings', function() {
+
+        // given
+        const sample = require('../fixtures/deprecated-binding-broken.json');
+
+        // when
+        const {
+          valid,
+          errors,
+          warnings
+        } = validateZeebe(sample);
+
+        // then
+        expect(valid).to.be.false;
+        expect(errors).not.to.be.empty;
+        expect(warnings).not.to.be.empty;
+
+        // errors should not include deprecated keyword
+        const deprecatedErrors = errors.filter(e => e.keyword === 'deprecated');
+        expect(deprecatedErrors).to.have.length(0);
       });
     });
   });
@@ -1162,6 +1220,91 @@ describe('Validator', function() {
         expect(valid).to.be.false;
         expect(results.every(r => !r.valid)).to.be.true;
         expect(results.map(r => r.object)).to.eql(samples);
+      });
+    });
+
+
+    describe('warnings', function() {
+
+      it('should return warnings per result for multiple templates', function() {
+
+        // given
+        const samples = require('../fixtures/multiple-deprecated.json');
+
+        // when
+        const {
+          valid,
+          results
+        } = validateAllZeebe(samples);
+
+        // then
+        expect(valid).to.be.true;
+        expect(results).to.have.length(3);
+
+        // first template has deprecated binding
+        const firstResult = results[0];
+        expect(firstResult.valid).to.be.true;
+        expect(firstResult.warnings).to.be.an('array').with.length(1);
+        expect(firstResult.warnings[0]).to.include({
+          keyword: 'deprecated',
+          message: 'Value is deprecated',
+          instancePath: '/properties/0/binding'
+        });
+
+        // second template has no deprecation
+        const secondResult = results[1];
+        expect(secondResult.valid).to.be.true;
+        expect(secondResult.warnings).not.to.exist;
+
+        // third template has feel:required with value without '='
+        const thirdResult = results[2];
+        expect(thirdResult.valid).to.be.true;
+        expect(thirdResult.warnings).to.be.an('array').with.length(1);
+        expect(thirdResult.warnings[0]).to.include({
+          keyword: 'deprecated',
+          message: 'Value is deprecated',
+          instancePath: '/properties/0/value'
+        });
+      });
+
+
+      it('should not leak warnings between validation calls', function() {
+
+        // given
+        const deprecated = require('../fixtures/deprecated-binding.json');
+        const nonDeprecated = require('../fixtures/message.json');
+
+        // when - validate deprecated first, then non-deprecated
+        const {
+          results
+        } = validateAllZeebe([ deprecated, nonDeprecated[0] ]);
+
+        // then
+        expect(results[0].warnings).to.be.an('array').with.length(1);
+
+        expect(results[1].warnings).not.to.exist;
+      });
+
+
+      it('should not leak warnings when non-deprecated is validated first', function() {
+
+        // given
+        const deprecated = require('../fixtures/deprecated-binding.json');
+        const nonDeprecated = require('../fixtures/message.json');
+
+        // when - validate non-deprecated first, then deprecated
+        const {
+          results
+        } = validateAllZeebe([ nonDeprecated[0], deprecated ]);
+
+        // then
+        expect(results[0].warnings).not.to.exist;
+
+        expect(results[1].warnings).to.be.an('array').with.length(1);
+        expect(results[1].warnings[0]).to.include({
+          keyword: 'deprecated',
+          message: 'Value is deprecated'
+        });
       });
     });
   });
