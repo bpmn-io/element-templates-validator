@@ -1,0 +1,26 @@
+{
+  "$schema": "https://unpkg.com/@camunda/zeebe-element-templates-json-schema/resources/schema.json",
+  "name": "Deprecated Binding Broken Template",
+  "id": "io.camunda.test.deprecated-binding-broken",
+  "description": "A template using deprecated binding AND having validation errors.",
+  "appliesTo": [
+    "bpmn:ServiceTask"
+  ],
+  "properties": [
+    {
+      "type": "Hidden",
+      "value": "http",
+      "binding": {
+        "type": "zeebe:taskDefinition:type"
+      }
+    },
+    {
+      "label": "Input",
+      "type": "INVALID_TYPE",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "input"
+      }
+    }
+  ]
+}

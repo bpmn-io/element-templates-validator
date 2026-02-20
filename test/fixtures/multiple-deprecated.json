@@ -1,0 +1,57 @@
+[
+  {
+    "$schema": "https://unpkg.com/@camunda/zeebe-element-templates-json-schema/resources/schema.json",
+    "name": "Template with deprecated binding",
+    "id": "io.camunda.test.deprecated-1",
+    "appliesTo": [
+      "bpmn:ServiceTask"
+    ],
+    "properties": [
+      {
+        "type": "Hidden",
+        "value": "http",
+        "binding": {
+          "type": "zeebe:taskDefinition:type"
+        }
+      }
+    ]
+  },
+  {
+    "$schema": "https://unpkg.com/@camunda/zeebe-element-templates-json-schema/resources/schema.json",
+    "name": "Template without deprecation",
+    "id": "io.camunda.test.no-deprecated",
+    "appliesTo": [
+      "bpmn:ServiceTask"
+    ],
+    "properties": [
+      {
+        "type": "Hidden",
+        "value": "http",
+        "binding": {
+          "type": "zeebe:taskDefinition",
+          "property": "type"
+        }
+      }
+    ]
+  },
+  {
+    "$schema": "https://unpkg.com/@camunda/zeebe-element-templates-json-schema/resources/schema.json",
+    "name": "Template with feel required and deprecated value",
+    "id": "io.camunda.test.feel-required-deprecated",
+    "appliesTo": [
+      "bpmn:ServiceTask"
+    ],
+    "properties": [
+      {
+        "label": "Input",
+        "type": "String",
+        "feel": "required",
+        "value": "someValue",
+        "binding": {
+          "type": "zeebe:input",
+          "name": "input"
+        }
+      }
+    ]
+  }
+]
