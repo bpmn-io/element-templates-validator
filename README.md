@@ -21,7 +21,8 @@ import sample from './test/fixtures/rpa-broken.json';
 
 const {
   valid,
-  errors
+  errors,
+  warnings
 } = validate(sample);
 
 if (!valid) {
@@ -29,7 +30,7 @@ if (!valid) {
 }
 ```
 
-This will print detailed information about errors inside the sample:
+This will print detailed information about errors and warnings inside the sample:
 
 ```json
 [
@@ -69,7 +70,8 @@ const sample = readFileSync('./test/fixtures/rpa-broken.json', 'utf-8');
 
 const {
   valid,
-  errors
+  errors,
+  warnings
 } = validate(sample);
 
 if (!valid) {
