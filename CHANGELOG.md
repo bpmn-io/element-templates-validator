@@ -6,6 +6,8 @@ All notable changes to [element-templates-validator](https://github.com/bpmn-io/
 
 ___Note:__ Yet to be released changes appear here._
 
+* `FEAT`: collect deprecation warnings during validation ([#78](https://github.com/bpmn-io/element-templates-validator/pull/78))
+
 # 2.17.0
 
 * `FEAT`: support conditional event templates ([#76](https://github.com/bpmn-io/element-templates-validator/pull/76))
