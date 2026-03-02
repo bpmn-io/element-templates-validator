@@ -6,6 +6,12 @@ All notable changes to [element-templates-validator](https://github.com/bpmn-io/
 
 ___Note:__ Yet to be released changes appear here._
 
+# 2.19.0
+
+* `FEAT`: allow `entriesVisible` to accept an object with property group ids to show them in the properties panel with applied template ([camunda/element-templates-json-schema#218](https://github.com/camunda/element-templates-json-schema/pull/218))
+* `DEPS`: update to `@camunda/zeebe-element-templates-json-schema@0.37.0`
+* `DEPS`: update to `@camunda/element-templates-json-schema@0.21.0`
+
 # 2.18.0
 
 * `FEAT`: collect deprecation warnings during validation ([#78](https://github.com/bpmn-io/element-templates-validator/pull/78))
