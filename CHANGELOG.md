@@ -9,6 +9,7 @@ ___Note:__ Yet to be released changes appear here._
 # 2.19.0
 
 * `FEAT`: allow `entriesVisible` to accept an object with property group ids to show them in the properties panel with applied template ([camunda/element-templates-json-schema#218](https://github.com/camunda/element-templates-json-schema/pull/218))
+* `FIX`: remove support for `bpmn:ConditionalEventDefinition#zeebe:conditionalFilter#variableNames` binding
 * `DEPS`: update to `@camunda/zeebe-element-templates-json-schema@0.37.0`
 * `DEPS`: update to `@camunda/element-templates-json-schema@0.21.0`
 
