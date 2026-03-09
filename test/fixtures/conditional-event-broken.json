@@ -12,11 +12,11 @@
   },
   "properties": [
     {
-      "label": "Variable Names",
+      "label": "Variable Names (deprecated)",
       "type": "String",
       "binding": {
         "type": "bpmn:ConditionalEventDefinition#zeebe:conditionalFilter#property",
-        "name": "variableNamesWrong"
+        "name": "variableNames"
       }
     },
     {
