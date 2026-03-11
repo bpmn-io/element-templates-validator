@@ -15,6 +15,8 @@ import {
   validateAllZeebe
 } from '../../dist/index.js';
 
+import createAjvInstance from '../../lib/helper/createAjvInstance.js';
+
 import { createRequire } from 'node:module';
 
 const require = createRequire(import.meta.url);
@@ -1306,6 +1308,73 @@ describe('Validator', function() {
           message: 'Value is deprecated'
         });
       });
+    });
+  });
+
+
+  describe('deprecationWarning keyword', function() {
+
+    const schema = {
+      type: 'object',
+      properties: {
+        properties: {
+          type: 'array',
+          items: {
+            type: 'object',
+            if: {
+              properties: { type: { const: 'Hidden' } },
+              required: [ 'type' ],
+              not: {
+                anyOf: [
+                  { required: [ 'value' ] },
+                  { required: [ 'generatedValue' ] }
+                ]
+              }
+            },
+            then: {
+              deprecated: true,
+              deprecationWarning: 'Hidden property should specify either "value" or "generatedValue"'
+            }
+          }
+        }
+      }
+    };
+
+
+    it('should produce warning with custom message for Hidden property without value', function() {
+
+      // given
+      const ajv = createAjvInstance();
+      const validate = ajv.compile(schema);
+
+      const template = require('../fixtures/warning-message.json');
+
+      // when
+      validate(template);
+
+      // then
+      expect(validate.warnings).to.be.an('array').with.length(1);
+
+      expect(validate.warnings[0]).to.include({
+        keyword: 'deprecated',
+        message: 'Hidden property should specify either "value" or "generatedValue"'
+      });
+    });
+
+
+    it('should not produce warning for Hidden property with value', function() {
+
+      // given
+      const ajv = createAjvInstance();
+      const validate = ajv.compile(schema);
+
+      const template = require('../fixtures/warning-message-with-value.json');
+
+      // when
+      validate(template);
+
+      // then
+      expect(validate.warnings).not.to.exist;
     });
   });
 });

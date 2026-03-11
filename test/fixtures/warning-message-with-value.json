@@ -1,0 +1,26 @@
+{
+  "$schema": "https://unpkg.com/@camunda/zeebe-element-templates-json-schema/resources/schema.json",
+  "name": "Warning Message Template With Value",
+  "id": "io.camunda.test.warning-message-with-value",
+  "description": "A template with Hidden property with value.",
+  "appliesTo": [
+    "bpmn:ServiceTask"
+  ],
+  "properties": [
+    {
+      "type": "Hidden",
+      "value": "http",
+      "binding": {
+        "type": "zeebe:taskDefinition:type"
+      }
+    },
+    {
+      "label": "Input",
+      "type": "String",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "input"
+      }
+    }
+  ]
+}
