@@ -6,6 +6,13 @@ All notable changes to [element-templates-validator](https://github.com/bpmn-io/
 
 ___Note:__ Yet to be released changes appear here._
 
+# 2.20.0
+
+* `FEAT`: add support for a custom deprecation message via `deprecationWarning` schema property ([#81](https://github.com/bpmn-io/element-templates-validator/pull/81))
+* `FEAT`: add schema support for templating execution and task listeners ([camunda/element-templates-json-schema#224](https://github.com/camunda/element-templates-json-schema/pull/224))
+* `FEAT`: allow controlling visibility of an execution and task listeners section via `entriesVisible` ([camunda/element-templates-json-schema#224](https://github.com/camunda/element-templates-json-schema/pull/224))
+* `DEPS`: update to `@camunda/zeebe-element-templates-json-schema@0.39.0`
+
 # 2.19.0
 
 * `FEAT`: allow `entriesVisible` to accept an object with property group ids to show them in the properties panel with applied template ([camunda/element-templates-json-schema#218](https://github.com/camunda/element-templates-json-schema/pull/218))
