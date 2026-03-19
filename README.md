@@ -1,6 +1,6 @@
 # element-templates-validator
 
-[![CI](https://github.com/bpmn-io/element-templates-validator/workflows/CI/badge.svg)](https://github.com/bpmn-io/element-templates-validator/actions?query=workflow%3ACI)
+[![CI](https://github.com/bpmn-io/element-templates-validator/actions/workflows/CI.yml/badge.svg)](https://github.com/bpmn-io/element-templates-validator/actions/workflows/CI.yml)
 
 Validate element templates based on [JSON Schema](https://github.com/camunda/element-templates-json-schema).
 
