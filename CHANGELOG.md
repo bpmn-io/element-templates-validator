@@ -6,6 +6,11 @@ All notable changes to [element-templates-validator](https://github.com/bpmn-io/
 
 ___Note:__ Yet to be released changes appear here._
 
+# 2.20.1
+
+* `FIX`: restrict usage of template-defined `zeebe:output` bindings when `entriesVisible.outputs === true` ([camunda/element-templates-json-schema#227](https://github.com/camunda/element-templates-json-schema/pull/227))
+* `DEPS`: update to `@camunda/zeebe-element-templates-json-schema@0.39.1`
+
 # 2.20.0
 
 * `FEAT`: add support for a custom deprecation message via `deprecationWarning` schema property ([#81](https://github.com/bpmn-io/element-templates-validator/pull/81))
