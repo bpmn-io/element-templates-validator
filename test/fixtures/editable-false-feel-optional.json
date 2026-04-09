@@ -1,0 +1,21 @@
+{
+  "$schema": "https://unpkg.com/@camunda/zeebe-element-templates-json-schema/resources/schema.json",
+  "name": "FEEL optional on non-editable property",
+  "id": "io.camunda.test.editable-false-feel-optional",
+  "appliesTo": [
+    "bpmn:ServiceTask"
+  ],
+  "properties": [
+    {
+      "label": "Input",
+      "type": "String",
+      "value": "input",
+      "editable": false,
+      "feel": "optional",
+      "binding": {
+        "type": "zeebe:input",
+        "name": "input"
+      }
+    }
+  ]
+}
