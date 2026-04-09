@@ -530,6 +530,30 @@ describe('Validator', function() {
       });
 
 
+      it('should return warning for non-editable property with feel: optional', function() {
+
+        // given
+        const sample = readFile('test/fixtures/editable-false-feel-optional.json');
+
+        // when
+        const {
+          valid,
+          errors,
+          warnings
+        } = validateZeebe(sample);
+
+        // then
+        expect(valid).to.be.true;
+        expect(errors).not.to.exist;
+        expect(warnings).to.be.an('array').with.length(1);
+
+        expect(warnings[0]).to.include({
+          keyword: 'deprecated',
+          message: "Using 'feel: optional' with 'editable: false' is invalid"
+        });
+      });
+
+
       it('should return both errors and warnings', function() {
 
         // given
@@ -1376,6 +1400,8 @@ describe('Validator', function() {
       // then
       expect(validate.warnings).not.to.exist;
     });
+
+
   });
 });
 
