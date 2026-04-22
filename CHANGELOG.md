@@ -6,6 +6,10 @@ All notable changes to [element-templates-validator](https://github.com/bpmn-io/
 
 ___Note:__ Yet to be released changes appear here._
 
+* `FEAT`: deprecate `optional` property for input mappings ([#85](https://github.com/bpmn-io/element-templates-validator/pull/85))
+* `DEPS`: update to `@camunda/zeebe-element-templates-json-schema@0.40.0`
+
+
 # 2.20.1
 
 * `FIX`: restrict usage of template-defined `zeebe:output` bindings when `entriesVisible.outputs === true` ([camunda/element-templates-json-schema#227](https://github.com/camunda/element-templates-json-schema/pull/227))
