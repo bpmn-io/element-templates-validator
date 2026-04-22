@@ -554,6 +554,47 @@ describe('Validator', function() {
       });
 
 
+      it('should return warning for deprecated optional field with zeebe:input', function() {
+
+        // given
+        const sample = readFile('test/fixtures/optional-zeebe-input-deprecated.json');
+
+        // when
+        const {
+          valid,
+          errors,
+          warnings
+        } = validateZeebe(sample);
+
+        // then
+        expect(valid).to.be.true;
+        expect(errors).not.to.exist;
+        expect(warnings).to.be.an('array').with.length(1);
+
+        expect(warnings[0]).to.include({
+          keyword: 'deprecated',
+          message: "'optional' with 'zeebe:input' binding is deprecated; an empty input mapping (resolved to 'null') should be used for Camunda 8.8+"
+        });
+      });
+
+
+      it('should not return warning for optional field with other binding types', function() {
+
+        // given
+        const sample = readFile('test/fixtures/optional-zeebe-output.json');
+
+        // when
+        const {
+          valid,
+          warnings
+        } = validateZeebe(sample);
+
+        // then
+        expect(valid).to.be.true;
+        expect(warnings).not.to.exist;
+      });
+
+
       it('should return both errors and warnings', function() {
 
         // given

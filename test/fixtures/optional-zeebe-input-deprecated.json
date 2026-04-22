@@ -1,0 +1,20 @@
+{
+  "$schema": "https://unpkg.com/@camunda/zeebe-element-templates-json-schema/resources/schema.json",
+  "name": "Optional Zeebe Input Template",
+  "id": "io.camunda.test.optional-zeebe-input",
+  "description": "A template with deprecated optional field with zeebe:input binding.",
+  "appliesTo": [
+    "bpmn:ServiceTask"
+  ],
+  "properties": [
+    {
+      "label": "Request Body",
+      "type": "String",
+      "optional": true,
+      "binding": {
+        "type": "zeebe:input",
+        "name": "body"
+      }
+    }
+  ]
+}

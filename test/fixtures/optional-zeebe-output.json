@@ -1,0 +1,19 @@
+{
+  "$schema": "https://unpkg.com/@camunda/zeebe-element-templates-json-schema/resources/schema.json",
+  "name": "Optional Zeebe Output Template",
+  "id": "io.camunda.test.optional-zeebe-output",
+  "appliesTo": [
+    "bpmn:ServiceTask"
+  ],
+  "properties": [
+    {
+      "label": "Result",
+      "type": "String",
+      "optional": true,
+      "binding": {
+        "type": "zeebe:output",
+        "source": "= body"
+      }
+    }
+  ]
+}
