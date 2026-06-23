@@ -6,6 +6,8 @@ All notable changes to [element-templates-validator](https://github.com/bpmn-io/
 
 ___Note:__ Yet to be released changes appear here._
 
+* `DEPS`: update to `@camunda/zeebe-element-templates-json-schema@0.41.1`
+
 # 2.22.0
 
 * `FEAT`: add `steps` and `presets` to Zeebe schema ([camunda/element-templates-json-schema#243](https://github.com/camunda/element-templates-json-schema/pull/243))
