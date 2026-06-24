@@ -1,0 +1,45 @@
+[
+  {
+    "$schema": "https://unpkg.com/@camunda/zeebe-element-templates-json-schema/resources/schema.json",
+    "id": "io.camunda.examples.isEmpty",
+    "name": "IsEmpty Condition",
+    "appliesTo": [
+      "bpmn:Task"
+    ],
+    "properties": [
+      {
+        "id": "configProp",
+        "type": "String",
+        "label": "Config",
+        "binding": {
+          "type": "zeebe:property",
+          "name": "config"
+        }
+      },
+      {
+        "type": "String",
+        "label": "Show if config is empty",
+        "binding": {
+          "type": "zeebe:property",
+          "name": "fallback"
+        },
+        "condition": {
+          "property": "configProp",
+          "isEmpty": true
+        }
+      },
+      {
+        "type": "String",
+        "label": "Show if config is not empty",
+        "binding": {
+          "type": "zeebe:property",
+          "name": "detail"
+        },
+        "condition": {
+          "property": "configProp",
+          "isEmpty": false
+        }
+      }
+    ]
+  }
+]
