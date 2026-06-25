@@ -6,7 +6,10 @@ All notable changes to [element-templates-validator](https://github.com/bpmn-io/
 
 ___Note:__ Yet to be released changes appear here._
 
-* `DEPS`: update to `@camunda/zeebe-element-templates-json-schema@0.41.1`
+## 2.23.0
+
+* `DEPS`: update to `@camunda/zeebe-element-templates-json-schema@0.42.0`
+* `DEPS`: update to `@camunda/element-templates-json-schema@0.22.0`
 
 ## 2.22.0
 
