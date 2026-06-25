@@ -8,68 +8,68 @@ ___Note:__ Yet to be released changes appear here._
 
 * `DEPS`: update to `@camunda/zeebe-element-templates-json-schema@0.41.1`
 
-# 2.22.0
+## 2.22.0
 
 * `FEAT`: add `steps` and `presets` to Zeebe schema ([camunda/element-templates-json-schema#243](https://github.com/camunda/element-templates-json-schema/pull/243))
 * `DEPS`: update to `@camunda/zeebe-element-templates-json-schema@0.41.0`
 
-# 2.21.0
+## 2.21.0
 
 * `FEAT`: deprecate `optional` property for input mappings ([#85](https://github.com/bpmn-io/element-templates-validator/pull/85))
 * `DEPS`: update to `@camunda/zeebe-element-templates-json-schema@0.40.0`
 
-# 2.20.1
+## 2.20.1
 
 * `FIX`: restrict usage of template-defined `zeebe:output` bindings when `entriesVisible.outputs === true` ([camunda/element-templates-json-schema#227](https://github.com/camunda/element-templates-json-schema/pull/227))
 * `DEPS`: update to `@camunda/zeebe-element-templates-json-schema@0.39.1`
 
-# 2.20.0
+## 2.20.0
 
 * `FEAT`: add support for a custom deprecation message via `deprecationWarning` schema property ([#81](https://github.com/bpmn-io/element-templates-validator/pull/81))
 * `FEAT`: add schema support for templating execution and task listeners ([camunda/element-templates-json-schema#224](https://github.com/camunda/element-templates-json-schema/pull/224))
 * `FEAT`: allow controlling visibility of an execution and task listeners section via `entriesVisible` ([camunda/element-templates-json-schema#224](https://github.com/camunda/element-templates-json-schema/pull/224))
 * `DEPS`: update to `@camunda/zeebe-element-templates-json-schema@0.39.0`
 
-# 2.19.0
+## 2.19.0
 
 * `FEAT`: allow `entriesVisible` to accept an object with property group ids to show them in the properties panel with applied template ([camunda/element-templates-json-schema#218](https://github.com/camunda/element-templates-json-schema/pull/218))
 * `FIX`: remove support for `bpmn:ConditionalEventDefinition#zeebe:conditionalFilter#variableNames` binding
 * `DEPS`: update to `@camunda/zeebe-element-templates-json-schema@0.37.0`
 * `DEPS`: update to `@camunda/element-templates-json-schema@0.21.0`
 
-# 2.18.0
+## 2.18.0
 
 * `FEAT`: collect deprecation warnings during validation ([#78](https://github.com/bpmn-io/element-templates-validator/pull/78))
 
-# 2.17.0
+## 2.17.0
 
 * `FEAT`: support conditional event templates ([#76](https://github.com/bpmn-io/element-templates-validator/pull/76))
 * `DEPS`: update to `@camunda/zeebe-element-templates-json-schema@0.36.0`
 
-# 2.16.0
+## 2.16.0
 
 * `FEAT`: support timer event templates ([#74](https://github.com/bpmn-io/element-templates-validator/pull/74))
 * `DEPS`: update to `@camunda/zeebe-element-templates-json-schema@0.35.0`
 
-# 2.15.0
+## 2.15.0
 
 * `FEAT`: support `zeebe:calledElement` variables propagation properties ([camunda/element-templates-json-schema#210](https://github.com/camunda/element-templates-json-schema/pull/210))
 * `FEAT`: update descriptions ([camunda/element-templates-json-schema#202](https://github.com/camunda/element-templates-json-schema/pull/202))
 * `DEPS`: update to `@camunda/zeebe-element-templates-json-schema@0.34.0`
 * `DEPS`: update to `@camunda/element-templates-json-schema@0.20.0`
 
-# 2.14.0
+## 2.14.0
 
 * `FEAT`: support signal events ([#72](https://github.com/bpmn-io/element-templates-validator/pull/72))
 * `FEAT`: overhaul and add missing properties descriptions
 * `DEPS`: update to `@camunda/zeebe-element-templates-json-schema@0.33.0`
 
-# 2.13.0
+## 2.13.0
 
 * `FEAT`: support `activeElementsCollection` property on `zeebe:adHoc` ([camunda/element-templates-json-schema#198](https://github.com/camunda/element-templates-json-schema/pull/198))
 * `DEPS`: update to `@camunda/zeebe-element-templates-json-schema@0.31.1`
 
-# 2.12.0
+## 2.12.0
 
 * `FEAT`: support `zeebe:taskSchedule` binding ([#66](https://github.com/bpmn-io/element-templates-validator/pull/66))
 * `FEAT`: disallow `bpmn:cancelRemainingInstances`, `bpmn:completionCondition` and `zeebe:activeElementsCollection` when `zeebe:taskDefinition` present ([camunda/element-templates-json-schema#194](https://github.com/camunda/element-templates-json-schema/pull/194))
