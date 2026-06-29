@@ -6,7 +6,8 @@ import alias from '@rollup/plugin-alias';
 import pkg from './package.json' with { type: 'json' };
 import {
   createStandaloneValidator,
-  createStandaloneZeebeValidator
+  createStandaloneZeebeValidator,
+  createStandaloneZeebeConfigurationValidator
 } from './tasks/createStandaloneValidator.js';
 
 
@@ -26,7 +27,8 @@ export default [
       alias({
         entries: {
           './validate': createStandaloneValidator(),
-          './validateZeebe': createStandaloneZeebeValidator()
+          './validateZeebe': createStandaloneZeebeValidator(),
+          './validateZeebeConfiguration': createStandaloneZeebeConfigurationValidator()
         }
       }),
       json(),

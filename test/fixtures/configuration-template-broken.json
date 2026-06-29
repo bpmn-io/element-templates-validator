@@ -1,0 +1,13 @@
+{
+  "name": "AWS Credential",
+  "id": "io.camunda:aws-credential:1",
+  "kind": "CREDENTIAL",
+  "version": 1,
+  "properties": [
+    {
+      "label": "Access key",
+      "type": "String",
+      "binding": { "type": "zeebe:input", "name": "accessKey" }
+    }
+  ]
+}
