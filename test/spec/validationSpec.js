@@ -12,7 +12,11 @@ import {
   getZeebeSchemaPackage,
   getZeebeSchemaVersion,
   validateZeebe,
-  validateAllZeebe
+  validateAllZeebe,
+  getZeebeConfigurationSchemaPackage,
+  getZeebeConfigurationSchemaVersion,
+  validateZeebeConfiguration,
+  validateAllZeebeConfiguration
 } from '../../dist/index.js';
 
 import createAjvInstance from '../../lib/helper/createAjvInstance.js';
@@ -297,6 +301,25 @@ describe('Validator', function() {
 
       // given
       const sample = require('../fixtures/rest-connector.json');
+
+      // when
+      const {
+        errors,
+        object,
+        valid
+      } = validateZeebe(sample);
+
+      // then
+      expect(valid).to.be.true;
+      expect(object).to.eql(sample);
+      expect(errors).not.to.exist;
+    });
+
+
+    it('should validate element template with Configuration property and embedded configurationTemplates', function() {
+
+      // given
+      const sample = require('../fixtures/configuration-property.json');
 
       // when
       const {
@@ -1392,6 +1415,127 @@ describe('Validator', function() {
           message: 'Value is deprecated'
         });
       });
+    });
+  });
+
+
+  describe('#getZeebeConfigurationSchemaPackage', function() {
+
+    it('should return schema package', function() {
+
+      // then
+      expect(getZeebeConfigurationSchemaPackage()).to.eql(
+        require('@camunda/zeebe-configuration-templates-json-schema/package.json').name);
+    });
+  });
+
+
+  describe('#getZeebeConfigurationSchemaVersion', function() {
+
+    it('should return schema version', function() {
+
+      // then
+      expect(getZeebeConfigurationSchemaVersion()).to.eql(
+        require('@camunda/zeebe-configuration-templates-json-schema/package.json').version);
+    });
+  });
+
+
+  describe('#validateAllZeebeConfiguration', function() {
+
+    it('should validate without errors', function() {
+
+      // given
+      const samples = [
+        require('../fixtures/configuration-template.json'),
+        require('../fixtures/configuration-template.json')
+      ];
+
+      // when
+      const {
+        valid,
+        results
+      } = validateAllZeebeConfiguration(samples);
+
+      // then
+      expect(valid).to.be.true;
+      expect(results.length).to.eql(samples.length);
+      expect(results.every(r => r.valid)).to.be.true;
+    });
+
+
+    it('should validate with errors', function() {
+
+      // given
+      const samples = [
+        require('../fixtures/configuration-template.json'),
+        require('../fixtures/configuration-template-broken.json')
+      ];
+
+      // when
+      const {
+        valid,
+        results
+      } = validateAllZeebeConfiguration(samples);
+
+      // then
+      expect(valid).to.be.false;
+      expect(results.map(r => r.valid)).to.eql([ true, false ]);
+    });
+  });
+
+
+  describe('#validateZeebeConfiguration', function() {
+
+    it('should validate a configuration template', function() {
+
+      // given
+      const sample = require('../fixtures/configuration-template.json');
+
+      // when
+      const {
+        errors,
+        object,
+        valid
+      } = validateZeebeConfiguration(sample);
+
+      // then
+      expect(valid).to.be.true;
+      expect(object).to.eql(sample);
+      expect(errors).not.to.exist;
+    });
+
+
+    it('should retrieve errors for an invalid configuration template', function() {
+
+      // given
+      const sample = require('../fixtures/configuration-template-broken.json');
+
+      // when
+      const {
+        errors,
+        valid
+      } = validateZeebeConfiguration(sample);
+
+      const normalizedErrors = normalizeErrors(errors);
+
+      // then
+      expect(valid).to.be.false;
+
+      expect(normalizedErrors).to.eql([
+        {
+          message: 'must be equal to constant',
+          params: { allowedValue: 'property' }
+        },
+        {
+          message: 'must be array',
+          params: { type: 'array' }
+        },
+        {
+          message: 'must match exactly one schema in oneOf',
+          params: { passingSchemas: null }
+        }
+      ]);
     });
   });
 
