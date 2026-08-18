@@ -6,6 +6,12 @@ All notable changes to [element-templates-validator](https://github.com/bpmn-io/
 
 ___Note:__ Yet to be released changes appear here._
 
+## 2.26.0
+
+* `FEAT`: validate `zeebe:agentDefinition` binding ([#93](https://github.com/bpmn-io/element-templates-validator/pull/93))
+* `DEPS`: update to `@camunda/zeebe-element-templates-json-schema@0.46.0`
+* `DEPS`: update to `@camunda/element-templates-json-schema@0.22.1`
+
 ## 2.25.0
 
 * `DEPS`: update to `@camunda/zeebe-element-templates-json-schema@0.44.0`

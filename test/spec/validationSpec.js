@@ -1217,6 +1217,45 @@ describe('Validator', function() {
     });
 
 
+    it('should validate agentDefinition templates', function() {
+
+      // given
+      const samples = require('../fixtures/agent-definition.json');
+
+      // when
+      const {
+        valid,
+        results
+      } = validateAllZeebe(samples);
+
+      // then
+      expect(valid).to.be.true;
+      expect(results.length).to.eql(samples.length);
+
+      expect(results.every(r => r.valid)).to.be.true;
+
+      expect(results.map(r => r.object)).to.eql(samples);
+    });
+
+
+    it('should validate agentDefinition templates with errors', function() {
+
+      // given
+      const samples = require('../fixtures/agent-definition-broken.json');
+
+      // when
+      const {
+        valid,
+        results
+      } = validateAllZeebe(samples);
+
+      // then
+      expect(valid).to.be.false;
+      expect(results.every(r => !r.valid)).to.be.true;
+      expect(results.map(r => r.object)).to.eql(samples);
+    });
+
+
     it('should validate taskSchedule templates with errors', function() {
 
       // given

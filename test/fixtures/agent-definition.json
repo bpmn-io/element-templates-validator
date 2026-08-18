@@ -1,0 +1,46 @@
+[
+  {
+    "$schema": "https://unpkg.com/@camunda/zeebe-element-templates-json-schema/resources/schema.json",
+    "name": "AI Agent Task",
+    "id": "agent-definition-service-task",
+    "description": "A template to mark a service task as an AI Agent Task",
+    "appliesTo": [
+      "bpmn:ServiceTask"
+    ],
+    "elementType": {
+      "value": "bpmn:ServiceTask"
+    },
+    "properties": [
+      {
+        "type": "Hidden",
+        "value": "aiAgentTask",
+        "binding": {
+          "type": "zeebe:agentDefinition",
+          "property": "agentType"
+        }
+      }
+    ]
+  },
+  {
+    "$schema": "https://unpkg.com/@camunda/zeebe-element-templates-json-schema/resources/schema.json",
+    "name": "AI Agent Sub Process",
+    "id": "agent-definition-adhoc-sub-process",
+    "description": "A template to mark an ad-hoc sub-process as an AI Agent Sub Process",
+    "appliesTo": [
+      "bpmn:AdHocSubProcess"
+    ],
+    "elementType": {
+      "value": "bpmn:AdHocSubProcess"
+    },
+    "properties": [
+      {
+        "type": "Hidden",
+        "value": "aiAgentSubProcess",
+        "binding": {
+          "type": "zeebe:agentDefinition",
+          "property": "agentType"
+        }
+      }
+    ]
+  }
+]
